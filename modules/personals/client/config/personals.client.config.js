@@ -6,10 +6,10 @@ angular.module('personals').run(['Menus',
     // Add the personals dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Personals',
-      state: 'personals',
-      type: 'dropdown'
+      state: 'personals.list',
+      //type: 'dropdown'
     });
-
+/*
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
       title: 'List Personals',
@@ -20,6 +20,6 @@ angular.module('personals').run(['Menus',
     Menus.addSubMenuItem('topbar', 'personals', {
       title: 'Create Personals',
       state: 'personals.create'
-    });
+    });*/
   }
 ]);

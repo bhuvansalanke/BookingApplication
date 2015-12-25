@@ -11,6 +11,8 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Authe
     
     // Find a list of Personals
     this.personals = Personals.query();
+
+    this.selectedDropdownItems = null;
     
     // Open a modal window to create a single personal record
     this.modelCreate = function (size) {

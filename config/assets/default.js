@@ -5,16 +5,29 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/fullcalendar/dist/fullcalendar.css',
+        'public/lib/angular-motion/dist/angular-motion.css',
+        'public/lib/angular-input-dropdown/inputDropdownStyles.css'
       ],
       js: [
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jquery-ui/jquery-ui.js',
         'public/lib/angular/angular.js',
+        'public/lib/angular-route/angular-route.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-        'public/lib/angular-file-upload/angular-file-upload.js'
+        'public/lib/angular-file-upload/angular-file-upload.js',
+        'public/lib/angular-ui-calendar/src/calendar.js',
+        'public/lib/moment/moment.js',
+        'public/lib/fullcalendar/dist/fullcalendar.js',    
+        'public/lib/angular-cookies/angular-cookies.js',
+        'public/lib/angular-input-dropdown/inputDropdown.js',
+        'public/lib/angular-strap/dist/angular-strap.js',
+        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

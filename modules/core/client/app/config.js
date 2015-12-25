@@ -4,7 +4,22 @@
 var ApplicationConfiguration = (function () {
   // Init module configuration options
   var applicationModuleName = 'mean';
-  var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload'];
+  var applicationModuleVendorDependencies = [
+    'ngResource', 
+    'ngAnimate', 
+    'ngCookies',
+    'ui.router', 
+    'ui.bootstrap', 
+    'ui.utils', 
+    'angularFileUpload',
+    'InputField',
+    'ui.calendar',
+    'GoogleCalendarService',
+    'EventUtil',
+    'AuthUtil',
+    'inputDropdown',
+    'mgcrea.ngStrap'
+    ];
 
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {

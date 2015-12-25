@@ -15,6 +15,8 @@ var noReturnUrls = [
 	'/authentication/signup'
 ];
 
+var _accessToken;
+
 /**
  * Signup
  */
@@ -118,7 +120,11 @@ exports.oauthCallback = function (strategy) {
         if (err) {
           return res.redirect('/authentication/signin');
         }
+        //store the access token and calendarId in our session
+        req.session.accessToken = _accessToken;
+        req.session.calendarId = user._json.emails[0].value;
 
+        res.cookie('profile', user);
         return res.redirect(redirectURL || sessionRedirectURL || '/');
       });
     })(req, res, next);
@@ -129,6 +135,7 @@ exports.oauthCallback = function (strategy) {
  * Helper function to save or update a OAuth user profile
  */
 exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
+  _accessToken = providerUserProfile.providerData.accessToken;
   if (!req.user) {
     // Define a search query fields
     var searchMainProviderIdentifierField = 'providerData.' + providerUserProfile.providerIdentifierField;
