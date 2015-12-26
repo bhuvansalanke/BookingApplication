@@ -2,34 +2,15 @@
 
 var eventsApp = angular.module('events');
 
-eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$location', 
-						function($scope , $googleCalendar, $location) {
+eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$location', '$log',
+						function($scope , $googleCalendar, $location, $log) {
 
 	$scope.events = [];
 	
 	$scope.durations = [
 		{label:'Half Day (4 hours)', hours:4},
 		{label:'Full Day (8 hours)', hours:8}
-	];
-	
-/*
-	var addEventModal = $modal({
-		title: 'Add Event',
-		template: 'modules/events/views/create-events.client.view.html',
-		show: false,
-		animation: 'am-fade-and-scale',
-		scope: $scope
-	});
-*/
-	//================================================================================
-	// Scope Functions
-	//================================================================================
-	
-/*
-	$scope.showAddEventModal = function() {
-		addEventModal.$promise.then(addEventModal.show);
-	};
-*/	
+	];	
 
 	this.addEvent = function() {
 
@@ -55,8 +36,8 @@ eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$lo
 
 }]);
 
-eventsApp.controller('EventsController', ['$scope', '$googleCalendar', 
-						function($scope , $googleCalendar) {
+eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModal', '$log',
+						function($scope , $googleCalendar, $uibModal, $log) {
 
 
 	//================================================================================
@@ -89,5 +70,31 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar',
 		$scope.currentEvent = event;
 	};
 	
+	// Open a modal window to create a single event
+    this.modelCreate = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'modules/events/views/create-events.client.view.html',
+      controller: function ($scope, $uibModalInstance) {
+    
+        $scope.ok = function () {
+          $uibModalInstance.close($scope.event);
+        };
+
+        $scope.cancel = function () {
+          $uibModalInstance.dismiss('cancel');
+        };
+        
+      },
+      size: size
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
 
 }]);

@@ -12,13 +12,9 @@ var ApplicationConfiguration = (function () {
     'ui.bootstrap', 
     'ui.utils', 
     'angularFileUpload',
-    'InputField',
     'ui.calendar',
     'GoogleCalendarService',
-    'EventUtil',
-    'AuthUtil',
-    'inputDropdown',
-    'mgcrea.ngStrap'
+    'EventUtil'
     ];
 
   // Add a new vertical module

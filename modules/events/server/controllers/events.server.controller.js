@@ -1,6 +1,6 @@
 'use strict';
 
-var gcal    = require('google-calendar');
+var gcal = require('google-calendar');
 
 exports.login = function(req, res, next) {
     if(!req.session.accessToken) {

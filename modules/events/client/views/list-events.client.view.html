@@ -1,22 +1,52 @@
 
 <section data-ng-controller="EventsController as eventCtrl">
-<div class="mainpage" id="container">
-	<div class="col-md-6">
-        <h2>Upcoming Events</h2>
-        <input ng-model="search" type="text" class="form-control" style="max-width:250px;" placeholder="Search"></input>
-        <div ng-repeat="event in events | filter:search" class="listItem">
-            <a ng-click="setCurrentEvent(event)">{{event.summary}}</a>
-            - {{ event.start.dateTime || event.start.date | date:medium }}
+    
+ <div class="row">
+      
+    <div class="col-xs-8 col-sm-6 col-md-4">
+      <h2>Upcoming Events</h2>
+    </div>
+      
+      <div class="form-group col-xs-4 col-sm-6 col-md-8 text-right pull-down">
+          <h2>
+          <button type="button" class="btn btn-success text-center" ng-click="eventCtrl.modelCreate('lg')">
+              <i class="glyphicon glyphicon-user"></i> <br>
+                  New Event
+          </button>                  
+          </h2>
+      </div>
+      
+  </div>
+    
+  <div class="row">
+    <div class="form-group col-xs-12 col-sm-8">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!></button>       
+        </span>
+      </div>
+    </div>
+  </div>
+   
+    <div class="row">
+        <div class="form-group">         
+             
+            <div ng-repeat="event in events | filter:searchText" class="listItem col-md-6">
+                <a ng-click="setCurrentEvent(event)">{{event.summary}}</a>
+                - {{ event.start.dateTime || event.start.date | date:medium }}
+            </div>
+            
+            <div id="mainContent" class="col-md-6">
+                <h2>{{ currentEvent.summary }}</h2>
+                <div class="well" ng-show="currentEvent">
+                    When: {{currentEvent.start.date || currentEvent.start.dateTime | date:'MMM d, y @ h:mm a'}}<br/>
+                    Description: {{currentEvent.description}}<br/>
+                </div>
+            </div>
+        
         </div>
     </div>
-    <div id="mainContent" class="col-md-6">
-        <h2>{{ currentEvent.summary }}</h2>
-        <div class="well" ng-show="currentEvent">
-            When: {{currentEvent.start.date || currentEvent.start.dateTime | date:'MMM d, y @ h:mm a'}}<br/>
-            Description: {{currentEvent.description}}<br/>
-        </div>
-    </div>
-    <!--<div id="calendar" class="col-md-4" ui-calendar="calOptions" ng-model="events"> </div>-->
-</div>
+
 </section>
 

@@ -6,20 +6,8 @@ angular.module('events').run(['Menus',
     // Add the events dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Events',
-      state: 'events',
-      type: 'dropdown'
+      state: 'events.list',
     });
 
-    // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'events', {
-      title: 'List Events',
-      state: 'events.list'
-    });
-
-    // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'events', {
-      title: 'Create Events',
-      state: 'events.create'
-    });
   }
 ]);

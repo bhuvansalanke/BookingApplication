@@ -13,7 +13,6 @@
     "angular-ui-router": "~0.2",
     "angular-file-upload": "1.1.5",
     "angular-cookies": "~1.2.12",
-    "angular-strap": "~2.0.1",
     "angular-motion": "~0.3.2",
     "angular-ui-calendar": "~1.0.1",
     "fullcalendar": "~2.4.0",

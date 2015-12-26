@@ -5,10 +5,10 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
+        'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/fullcalendar/dist/fullcalendar.css',
-        'public/lib/angular-motion/dist/angular-motion.css',
-        'public/lib/angular-input-dropdown/inputDropdownStyles.css'
+        'public/lib/angular-motion/dist/angular-motion.css'
       ],
       js: [
         'public/lib/jquery/dist/jquery.min.js',
@@ -24,10 +24,7 @@ module.exports = {
         'public/lib/angular-ui-calendar/src/calendar.js',
         'public/lib/moment/moment.js',
         'public/lib/fullcalendar/dist/fullcalendar.js',    
-        'public/lib/angular-cookies/angular-cookies.js',
-        'public/lib/angular-input-dropdown/inputDropdown.js',
-        'public/lib/angular-strap/dist/angular-strap.js',
-        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
+        'public/lib/angular-cookies/angular-cookies.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

@@ -4,10 +4,8 @@
 
 var personalsApp = angular.module('personals');
 
-personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Authentication', 'Personals', '$modal', '$log',
-  function ($scope, $stateParams, Authentication, Personals, $modal, $log) {
-    
-    this.authentication = Authentication;
+personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Personals', '$uibModal', '$log', '$q',
+  function ($scope, $stateParams, Personals, $uibModal, $log, $q) {
     
     // Find a list of Personals
     this.personals = Personals.query();
@@ -17,46 +15,45 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Authe
     // Open a modal window to create a single personal record
     this.modelCreate = function (size) {
 
-    var modalInstance = $modal.open({
+    var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'modules/personals/views/create-personal.client.view.html',
-      controller: function ($scope, $modalInstance) {
-        
+      controller: function ($scope, $uibModalInstance) {
+    
         $scope.ok = function () {
-          $modalInstance.close();
+          $uibModalInstance.close($scope.personal);
         };
 
         $scope.cancel = function () {
-          $modalInstance.dismiss('cancel');
+          $uibModalInstance.dismiss('cancel');
         };
         
       },
       size: size
     });
 
-    modalInstance.result.then(function () {
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
     
-    
-    
     // Open a modal window to update a single personal record
     this.modelUpdate = function (size, selectedPersonal) {
 
-    var modalInstance = $modal.open({
+    var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'modules/personals/views/edit-personal.client.view.html',
-      controller: function ($scope, $modalInstance, personal) {
+      controller: function ($scope, $uibModalInstance, personal) {
         $scope.personal = personal;
         
         $scope.ok = function () {
-          $modalInstance.close($scope.personal);
+          $uibModalInstance.close($scope.personal);
         };
 
         $scope.cancel = function () {
-          $modalInstance.dismiss('cancel');
+          $uibModalInstance.dismiss('cancel');
         };
         
       },

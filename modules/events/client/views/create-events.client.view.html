@@ -16,12 +16,6 @@
                     </select>
                 </form>
             </div>
-            
-            <!--<inputfield ng-model="$parent.contactInfo.firstName" type="text" label="First Name" placeholder="Enter first name..." id="firstName" required></inputfield>
-            <inputfield ng-model="$parent.contactInfo.lastName" type="text" label="Last Name" placeholder="Enter last name..." id="lastName" required></inputfield>
-            <inputfield ng-model="$parent.contactInfo.email" type="email" label="Email" placeholder="Enter email address..." id="email" required></inputfield>
-            <inputfield ng-model="$parent.contactInfo.phone" type="tel" label="Phone" placeholder="Enter phone number..." id="phone" required></inputfield>
-            <inputfield ng-model="$parent.contactInfo.details" type="textarea" label="Details" id="details"></inputfield>-->
 
            <div class="form-group">
                 <label class="control-label col-sm-2" for="duration">Duration</label>
@@ -29,128 +23,26 @@
                     <select id="duration" class="form-control" ng-model="$parent.event.duration" ng-options="d.label for d in durations" style="width:auto" required></select>
                 </div>
             </div>
+            
         </form>
         
         <form class="form-inline" name="timeForm">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="startDate">Start Date</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startDate" bs-datepicker required>
-                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startTime" bs-timepicker required>
+                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startDate" 
+                           uib-datepicker-popup="MM-dd-yyyy" is-open="data.isOpen" ng-click="data.isOpen = true" required>  
                 </div>
+                
             </div>
-        </form>
-
-
+        </form>     
+    
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" ng-disabled="contactForm.$invalid || timeForm.$invalid" ng-click="createEventCtrl.addEvent()">Add Event</button>
-        <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
       </div>
 
 </section>
 
-<!--
-<section data-ng-controller="EventsController as createEventCtrl">
- 
-  <div class="modal-header">
-    <h3 class="modal-title">New Event</h3>
-  </div>
- 
- <div class="modal-body">
-    <form name="createEventForm">
-      <fieldset>
-        <div class="form-group">
-            <alert type="danger" data-ng-show="error" class="text-center text-danger">
-              <span data-ng-bind="error"></span>
-            </alert>
-        </div>
-        
-        <div class="row">
-            
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="control-label" for="fName">First Name</label>
-                    <div class="controls">
-                        <input name="fName" type="text" data-ng-model="createEventCtrl.fName" id="fName" class="form-control" placeholder="Enter your First Name" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="control-label" for="lName">Last Name</label>
-                    <div class="controls">
-                        <input name="lName" type="text" data-ng-model="createEventCtrl.lName" id="lName" class="form-control" placeholder="Enter your Last Name" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="control-label" for="detail">Detail</label>
-                    <div class="controls">
-                        <input name="detail" type="textarea" data-ng-model="createEventCtrl.detail" id="detail" class="form-control" required>
-                    </div>
-                </div> 
-            </div>
-          
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="control-label" for="contact">Contact Number</label>
-                    <div class="controls">
-                        <input name="contact" type="text" data-ng-model="createEventCtrl.contact" id="contact" class="form-control" placeholder="Enter your contact number" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="control-label" for="emailId">Email Id</label>
-                    <div class="controls">
-                        <input name="emailId" type="text" data-ng-model="createEventCtrl.emailId" id="emailId" class="form-control" placeholder="Enter your email id" required>
-                    </div>
-                </div> 
-                              
-                <div class="form-group">
-                    <label class="control-label" for="duration">Duration</label>
-                    <div class="controls">
-                        <select id="duration" class="form-control" data-ng-model="createEventCtrl.duration" ng-options="d.label for d in createEventCtrl.durations" required></select>
-                    </div>
-                </div>
-
-            </div>        
-        </div>
-        
-        <div class="row">
-            
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label class="control-label" for="start">Start Date</label>
-                    <input name="start" type="time" class="form-control" id="startTimeInput" data-ng-model="event.startTime" required>
-                </div>
-            </div>
-            
-            <div class="col-sm-6">
-                <div class="form-group">
-                <label class="control-label" for="startTime">Start Time</label>
-                <select name="startTime" class="form-control" data-ng-model="event.duration" ng-options="d.label for d in durations" required></select>
-                </div> 
-            </div>
-                      
-            <form class="form-inline" name="timeForm">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="startDate">Start Date</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startDate" bs-datepicker required>
-                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startTime" bs-timepicker required>
-                </div>
-            </div>
-        </form>        
-        </div> 
-
-        </fieldset>
-     </form>
-  </div>
-  
-  <div class="modal-footer">
-    <button class="btn btn-success" type="button" ng-click="createPrsnlCtrl.CreatePrsnl(events); ok()" ng-disabled="createPersonalForm.$invalid">Save & Close</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-  </div>
-
-</section>
--->

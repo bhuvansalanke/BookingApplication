@@ -1,15 +1,16 @@
 <section data-ng-controller="PersonalsCreateController as createPrsnlCtrl">
   
   <div class="modal-header">
-    <h3 class="modal-title">New Personal</h3>
+    <h3>New Personal</h3>
   </div>
+  
   <div class="modal-body">
     <form name="createPersonalForm">
       <fieldset>
         <div class="form-group">
-            <alert type="danger" data-ng-show="error" class="text-center text-danger">
+            <uib-alert type="danger" data-ng-show="error" class="text-center text-danger">
               <span data-ng-bind="error"></span>
-            </alert>
+            </uib-alert>
         </div>
         <div class="row">
           <div class="col-sm-6 text-center form-group">

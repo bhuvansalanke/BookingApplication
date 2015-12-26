@@ -13,18 +13,9 @@ angular.module('events').config(['$stateProvider',
           roles: ['user', 'admin']
         }
       })
-      .state('events.use', {
-        url: '/login',
-        templateUrl: 'modules/events/views/login.html',
-       // controller: 'LoginController'
-      })
       .state('events.list', {
         url: '',
         templateUrl: 'modules/events/views/list-events.client.view.html'
-      })
-      .state('events.create', {
-        url: '/create',
-        templateUrl: 'modules/events/views/create-events.client.view.html'
       });
   }
 ]);
