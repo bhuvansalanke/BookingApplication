@@ -11,7 +11,7 @@ eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$lo
 		{label:'Half Day (4 hours)', hours:4},
 		{label:'Full Day (8 hours)', hours:8}
 	];	
-
+	
 	this.addEvent = function() {
 
 		console.log('Start Date:', $scope.event.startDate);
