@@ -16,6 +16,18 @@ angular.module('personals')
   }
 ])
 
+.factory('ApptTypes', ['$resource',
+  function ($resource) {
+    return $resource('api/appttypes/:appttypeId', {
+      appttypeId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  }
+])
+
 .factory('Notify', ['$rootScope', function($rootScope){
   var notify = {};
   

@@ -8,7 +8,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/fullcalendar/dist/fullcalendar.css',
-        'public/lib/angular-motion/dist/angular-motion.css'
+        'public/lib/angular-motion/dist/angular-motion.css',
+        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.css'
       ],
       js: [
         'public/lib/jquery/dist/jquery.min.js',
@@ -24,7 +25,9 @@ module.exports = {
         'public/lib/angular-ui-calendar/src/calendar.js',
         'public/lib/moment/moment.js',
         'public/lib/fullcalendar/dist/fullcalendar.js',    
-        'public/lib/angular-cookies/angular-cookies.js'
+        'public/lib/angular-cookies/angular-cookies.js',
+        'public/lib/angular-filter/dist/angular-filter.min.js',
+        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

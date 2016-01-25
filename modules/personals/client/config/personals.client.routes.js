@@ -17,9 +17,9 @@ angular.module('personals').config(['$stateProvider',
         url: '',
         templateUrl: 'modules/personals/views/list-personals.client.view.html'
       })
-      .state('personals.create', {
-        url: '/create',
-        templateUrl: 'modules/personals/views/create-personal.client.view.html'
+      .state('personals.appttypelist', {
+        url: '/appointmenttypes',
+        templateUrl: 'modules/personals/views/list-appttypes.client.view.html'
       });
   }
 ]);

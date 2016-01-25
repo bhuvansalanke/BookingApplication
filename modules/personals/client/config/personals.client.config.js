@@ -5,21 +5,22 @@ angular.module('personals').run(['Menus',
   function (Menus) {
     // Add the personals dropdown item
     Menus.addMenuItem('topbar', {
-      title: 'Personals',
-      state: 'personals.list',
-      //type: 'dropdown'
+      title: 'Admin',
+      state: 'personals',
+      type: 'dropdown',
+      roles: ['user']
     });
-/*
+
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
-      title: 'List Personals',
+      title: 'Employees',
       state: 'personals.list'
     });
 
-    // Add the dropdown create item
+    // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
-      title: 'Create Personals',
-      state: 'personals.create'
-    });*/
+      title: 'Appointment Types',
+      state: 'personals.appttypelist'
+    });
   }
 ]);

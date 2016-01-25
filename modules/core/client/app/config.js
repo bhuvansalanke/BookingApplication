@@ -14,7 +14,8 @@ var ApplicationConfiguration = (function () {
     'angularFileUpload',
     'ui.calendar',
     'GoogleCalendarService',
-    'EventUtil'
+    'EventUtil',
+    'angular-multi-select'
     ];
 
   // Add a new vertical module

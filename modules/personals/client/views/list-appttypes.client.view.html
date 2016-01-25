@@ -1,0 +1,32 @@
+<h2>Appointment Types</h2>
+<div ng-controller="ApptTypeController">
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Procedure</th>
+            <th>Duration (min)</th>
+            <th>Cost</th>
+            <th>Action</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td><input type="text" class="form-control" ng-model="procedure.description"></td>
+                <td><input type="number" class="form-control" ng-model="procedure.duration"></td>
+                <td><input type="number" class="form-control" ng-model="procedure.price"></td>
+                <td><button class="btn btn-primary" ng-click="addProcedure()">Add Procedure</button></td>
+                <td><button class="btn btn-info" ng-click="update(procedure)">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+            </tr>
+            <tr data-ng-repeat="procedure in procedureList">
+                <td>{{procedure.description}}</td>
+                <td>{{procedure.duration}}</td>
+                <td>{{procedure.price}}</td>
+                <td><button class="btn btn-danger" ng-click="remove(procedure)">Remove</button></td>
+                <td><button class="btn btn-warning" ng-click="edit(procedure)">Edit</button></td>
+            </tr>
+        </tbody>
+    
+    </table>
+</div>
