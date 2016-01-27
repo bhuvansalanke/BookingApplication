@@ -17,29 +17,29 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
   // Open a modal window to create a single personal record
   this.modelCreate = function (size) {
 
-  var modalInstance = $uibModal.open({
-    animation: $scope.animationsEnabled,
-    templateUrl: 'modules/personals/views/create-personal.client.view.html',
-      
-    controller: function ($scope, $uibModalInstance) {
-    
-        $scope.ok = function () {
-          $uibModalInstance.close($scope.personal);
-        };
-
-        $scope.cancel = function () {
-          $uibModalInstance.dismiss('cancel');
-        };
+    var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'modules/personals/views/create-personal.client.view.html',
         
-      },
-      size: size
-    });
+        controller: function ($scope, $uibModalInstance) {
+        
+            $scope.ok = function () {
+            $uibModalInstance.close($scope.personal);
+            };
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-    });
+            $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+            };
+            
+        },
+        size: size
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
   };
     
     // Open a modal window to update a single personal record
@@ -57,35 +57,67 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
                 };
         }
         
-        console.log(elements);
-        
         selectedPersonal.treatments = elements;
         
         console.log(selectedPersonal);
         
-    var modalInstance = $uibModal.open({
-        animation: $scope.animationsEnabled,
-        templateUrl: 'modules/personals/views/edit-personal.client.view.html',
-        controller: function ($scope, $uibModalInstance, selectedPersonal) {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'modules/personals/views/edit-personal.client.view.html',
+            controller: function ($scope, $uibModalInstance, selectedPersonal) {
+                
+            $scope.personal = selectedPersonal;
             
-          $scope.personal = selectedPersonal;
-          
-          $scope.ok = function () {
-            $uibModalInstance.close($scope.personal);
-          };
+            $scope.ok = function () {
+                $uibModalInstance.close($scope.personal);
+            };
+    
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+            
+            },
+            size: size,
+            resolve: {
+            selectedPersonal: function () {
+                return selectedPersonal;
+            }
+            }
+        });
   
-          $scope.cancel = function () {
-            $uibModalInstance.dismiss('cancel');
-          };
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+        }, function () {
           
-        },
-        size: size,
-        resolve: {
-          selectedPersonal: function () {
-            return selectedPersonal;
-          }
-        }
       });
+    };
+    
+    // Open a modal window to update a single personal record
+    this.modelShedule = function (size, selectedPersonal) {
+        
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'modules/personals/views/list-apptslots.client.view.html',
+            controller: function ($scope, $uibModalInstance, selectedPersonal) {
+                
+            $scope.apptSlots = selectedPersonal.apptSlots;
+            
+            $scope.ok = function () {
+                $uibModalInstance.close($scope.personal);
+            };
+    
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+            
+            },
+            size: size,
+            resolve: {
+            selectedPersonal: function () {
+                return selectedPersonal;
+            }
+            }
+        });
   
       modalInstance.result.then(function (selectedItem) {
         $scope.selected = selectedItem;
@@ -130,7 +162,9 @@ personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'No
         contact: this.contact,
         isConsultant: this.isConsultant,
         speciality: this.speciality,
-        treatments: this.selectedTreatments
+        qualification: this.qualification,
+        treatments: this.selectedTreatments,
+        apptSlots: this.apptSlots
       });
 
 
@@ -144,7 +178,9 @@ personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'No
         $scope.contact = '';
         $scope.isConsultant = '';
         $scope.speciality = '';
+        $scope.qualification = '';
         $scope.selectedTreatments = null;
+        $scope.apptSlots = null;
         Notify.sendMsg('NewPersonal', {'id': response._id});
         
       }, function (errorResponse) {
@@ -195,11 +231,12 @@ personalsApp.controller('ApptTypeController', ['$scope', 'ApptTypes',
     
     $scope.procedureList = [];
     $scope.procedure = [];
-    $scope.selectedDropdownItems = null;
+    $scope.disabled = false;
     
     var refresh = function() {
         $scope.procedureList = ApptTypes.query();
         $scope.procedure = '';
+        $scope.disabled = false;
     };
 
     refresh();
@@ -269,11 +306,129 @@ personalsApp.controller('ApptTypeController', ['$scope', 'ApptTypes',
                     $scope.procedure = procedure;
                 }
             }
-
+        
+        $scope.disabled = true;
     };
         
     $scope.deselect = function() {
         $scope.procedure = '';
+        $scope.disabled = false;
+    };
+
+  }
+]);
+
+personalsApp.controller('ApptSlotController', ['$scope', 
+  function ($scope) {
+    
+    $scope.slotList = [];
+    $scope.slot = [];
+    $scope.disabled = false;
+    
+    $scope.dayOptions = [
+		{label:'Monday'},
+		{label:'Tuesday'},
+        {label:'Wednesday'},
+		{label:'Thursday'},
+        {label:'Friday'},
+		{label:'Saturday'},
+        {label:'Sunday'}
+	];
+    
+    
+    var refresh = function() {
+        //$scope.slotList = ApptTypes.query();
+        $scope.slot = '';
+        $scope.disabled = false;
+    };
+
+    //refresh();
+    
+    // Create new Appt Slot
+    $scope.addSlots= function () {
+
+        // Create new Appt Type object
+        /*var apptType = new ApptTypes({
+            description: $scope.procedure.description,
+            duration: $scope.procedure.duration,
+            price: $scope.procedure.price
+            
+        });
+
+        // Redirect after save
+        apptType.$save(function (response) {
+
+            // Clear form fields
+            $scope.procedure.description = '';
+            $scope.procedure.duration = '';
+            $scope.procedure.price = '';
+            
+            refresh();
+        
+        }, function (errorResponse) {
+            $scope.error = errorResponse.data.message;
+        });*/
+        
+        $scope.slotList.push({
+            day: $scope.slot.selectedDay.label,
+            startTimeHour: $scope.slot.startTimeHour,
+            startTimeMin: $scope.slot.startTimeMin,
+            endTimeHour: $scope.slot.endTimeHour,
+            endTimeMin: $scope.slot.endTimeMin,
+            location: $scope.slot.location,
+            starttime: String($scope.slot.startTimeHour) + ':' + String($scope.slot.startTimeMin),
+            endtime: String($scope.slot.endTimeHour) + ':' + String($scope.slot.endTimeMin)
+            
+        });
+    
+    };
+    
+    // Remove existing Slot
+    $scope.remove = function (slot) {
+        if (slot) {
+
+            slot.$remove();
+
+            for (var i in this.slotList) {
+                if (this.slotList[i] === slot) {
+                    this.slotList.splice(i, 1);
+                }
+            }
+        } else {
+            this.slot.$remove(function () {
+                
+            });
+        }
+        
+    };
+    
+    // Update existing Slot
+    $scope.update = function (updtslot) {
+
+        var slot = updtslot;
+      
+        slot.$update(function () {
+            refresh();
+        }, function (errorResponse) {
+            $scope.error = errorResponse.data.message;
+            console.log(errorResponse.data.message);
+      });
+    };
+    
+    $scope.edit = function(slot) {
+
+        for (var i in this.slotList) {
+                if (this.slotList[i] === slot) {
+                    $scope.slot = slot;
+                }
+            }
+        
+        $scope.disabled = true;
+    };
+        
+    $scope.deselect = function() {
+        $scope.slot = '';
+        $scope.disabled = false;
     };
 
   }

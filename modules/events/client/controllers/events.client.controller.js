@@ -28,11 +28,20 @@ eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$lo
  
 	};
 	
-	this.update = function(selectedDropdownItems) {
-		
-		$scope.contactInfo = selectedDropdownItems;
+    this.selectedDentist = [];
+	this.updateDentist = function(dentist) {
+		$scope.contactInfo = dentist;
+        this.selectedTreatment = []; 
 		console.log($scope.contactInfo);
 	};
+    
+    this.selectedTreatment = []; 
+    this.updateTreatment = function(treatment) {
+		
+		$scope.treatmentInfo = treatment;
+		console.log($scope.treatmentInfo);
+	};
+   
 
 }]);
 

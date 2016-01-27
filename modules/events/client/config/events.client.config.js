@@ -5,8 +5,14 @@ angular.module('events').run(['Menus',
   function (Menus) {
     // Add the events dropdown item
     Menus.addMenuItem('topbar', {
-      title: 'Events',
-      state: 'events.list',
+      title: 'Scheduling',
+      state: 'events.list'
+    });
+    
+    // Add the events dropdown item
+    Menus.addMenuItem('topbar', {
+      title: 'Appointments',
+      state: 'events.create'
     });
 
   }

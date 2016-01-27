@@ -45,9 +45,9 @@ exports.update = function (req, res) {
   personal.emailId = req.body.emailId;
   personal.speciality = req.body.speciality;
   personal.isConsultant = req.body.isConsultant;
+  personal.qualification = req.body.qualification;
   personal.treatments = req.body.treatments;
-  
-  //personal = _.extend(personal, req.body);
+  personal.apptSlots = req.body.apptSlots;
 
   personal.save(function (err) {
     if (err) {

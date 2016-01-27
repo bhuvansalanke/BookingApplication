@@ -16,8 +16,8 @@ var ApptTypeSchema = new Schema({
         type: Number
     },
     appttypeid: {
-    type: Schema.ObjectId,
-    ref: 'ApptTypeId'
+        type: Schema.ObjectId,
+        ref: 'ApptTypeId'
     }
 });
 
@@ -63,11 +63,32 @@ var PersonalSchema = new Schema({
         default: '',
         trim: true
     },
+    
     treatments: [ApptTypeSchema],
+    
+    slots: [{
+        day: {
+            type: String,
+            default: '',
+            required: 'Please fill the day',
+            trim: true
+        } ,
+        starttime: {
+            type: Number
+        },
+        endtime: {
+            type: Number
+        },
+        location: {
+            type: String
+        }
+    }],
+    
     user: {
-    type: Schema.ObjectId,
-    ref: 'User'
+        type: Schema.ObjectId,
+        ref: 'User'
     }
 });
 
 mongoose.model('Personal', PersonalSchema);
+mongoose.model('ApptType', ApptTypeSchema);

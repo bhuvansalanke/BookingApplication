@@ -1,27 +1,25 @@
 
 <section data-ng-controller="EventsCreateController as createEventCtrl">
       <div class="modal-header">
-        <h3 class="modal-title">New Event</h3>
+        <h3 class="modal-title">Book an Appointment</h3>
       </div>
       
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" name="contactForm">
+        <form class="form-horizontal" role="form" name="contactForm" ng-controller="PersonalsController as personalsCtrl">
             
-            <div class="form-group" ng-controller="PersonalsController as personalsCtrl">
-                <form name="prsnlForm">
-                    <label for="repeatSelect"> Select : </label>
-                    <select ng-model="personalsCtrl.selectedDropdownItem" ng-change="createEventCtrl.update(personalsCtrl.selectedDropdownItem)" 
-                            ng-options="personal.fName + ' ' + personal.lName  for personal in personalsCtrl.personals">
-                    </select>
-                </form>
+            <div class="form-group" >
+                <label class="control-label col-sm-2" for="repeatSelect"> Select a dentist </label>
+                <select class="dentistList" ng-model="createEventCtrl.selectedDentist" ng-change="createEventCtrl.updateDentist(createEventCtrl.selectedDentist)" 
+                        ng-options="personal.fName + ' ' + personal.lName  for personal in personalsCtrl.personals">
+                </select>
             </div>
 
            <div class="form-group">
-                <label class="control-label col-sm-2" for="duration">Duration</label>
-                <div class="col-sm-10">
-                    <select id="duration" class="form-control" ng-model="$parent.event.duration" ng-options="d.label for d in durations" style="width:auto" required></select>
-                </div>
+                <label class="control-label col-sm-2" for="treatment">Treatment</label>
+                <select class="dentistList" ng-model="createEventCtrl.selectedTreatment" ng-change="createEventCtrl.updateTreatment(createEventCtrl.selectedTreatment)"
+                        ng-options="treatment.description for treatment in createEventCtrl.selectedDentist.treatments">
+                </select>
             </div>
             
         </form>
