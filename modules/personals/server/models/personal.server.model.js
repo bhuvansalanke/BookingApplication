@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+
 var ApptTypeSchema = new Schema({
     description: {
         type: String,
@@ -74,10 +75,10 @@ var PersonalSchema = new Schema({
             trim: true
         } ,
         starttime: {
-            type: Number
+            type: Date
         },
         endtime: {
-            type: Number
+            type: Date
         },
         location: {
             type: String

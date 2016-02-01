@@ -27,7 +27,9 @@ module.exports = {
         'public/lib/fullcalendar/dist/fullcalendar.js',    
         'public/lib/angular-cookies/angular-cookies.js',
         'public/lib/angular-filter/dist/angular-filter.min.js',
-        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.js'
+        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.js',
+        'public/lib/angular-strap/dist/angular-strap.min.js',
+        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

@@ -15,7 +15,8 @@ var ApplicationConfiguration = (function () {
     'ui.calendar',
     'GoogleCalendarService',
     'EventUtil',
-    'angular-multi-select'
+    'angular-multi-select',
+    'mgcrea.ngStrap'
     ];
 
   // Add a new vertical module

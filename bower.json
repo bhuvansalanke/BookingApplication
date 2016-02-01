@@ -16,7 +16,8 @@
     "angular-motion": "~0.3.2",
     "angular-ui-calendar": "~1.0.1",
     "fullcalendar": "~2.4.0",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
+    "angular-strap": "~2.3.7"
   },
   "resolutions": {
     "angular": "~1.3"

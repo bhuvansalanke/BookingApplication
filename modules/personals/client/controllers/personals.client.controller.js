@@ -11,8 +11,6 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
   this.personals = Personals.query();
   
   console.log(this.personals);
-
-  this.selectedDropdownItems = null;
   
   // Open a modal window to create a single personal record
   this.modelCreate = function (size) {
@@ -24,11 +22,11 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
         controller: function ($scope, $uibModalInstance) {
         
             $scope.ok = function () {
-            $uibModalInstance.close($scope.personal);
+                $uibModalInstance.close($scope.personal);
             };
 
             $scope.cancel = function () {
-            $uibModalInstance.dismiss('cancel');
+                $uibModalInstance.dismiss('cancel');
             };
             
         },
@@ -40,7 +38,7 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
-  };
+    };
     
     // Open a modal window to update a single personal record
     this.modelUpdate = function (size, selectedPersonal) {
@@ -79,9 +77,9 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
             },
             size: size,
             resolve: {
-            selectedPersonal: function () {
-                return selectedPersonal;
-            }
+                selectedPersonal: function () {
+                    return selectedPersonal;
+                }
             }
         });
   
@@ -93,34 +91,42 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
     };
     
     // Open a modal window to update a single personal record
-    this.modelShedule = function (size, selectedPersonal) {
+    this.modelSchedule = function (size, selectedPersonal) {
         
         var modalInstance = $uibModal.open({
+            
             animation: $scope.animationsEnabled,
+            
             templateUrl: 'modules/personals/views/list-apptslots.client.view.html',
+            
             controller: function ($scope, $uibModalInstance, selectedPersonal) {
                 
-            $scope.apptSlots = selectedPersonal.apptSlots;
-            
-            $scope.ok = function () {
-                $uibModalInstance.close($scope.personal);
-            };
-    
-            $scope.cancel = function () {
-                $uibModalInstance.dismiss('cancel');
-            };
-            
+                $scope.personal = selectedPersonal;
+                $scope.slotList = selectedPersonal.slots;
+                
+                console.log($scope.slotList);
+                
+                $scope.ok = function () {
+                    $uibModalInstance.close($scope.personal);
+                };
+        
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss('cancel');
+                };
+                
             },
+            
             size: size,
+            
             resolve: {
-            selectedPersonal: function () {
-                return selectedPersonal;
-            }
+                selectedPersonal: function () {
+                    return selectedPersonal;
+                }
             }
         });
   
       modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+            $scope.selected = selectedItem;
         }, function () {
           
       });
@@ -129,28 +135,30 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
     // Remove existing Personal
     this.remove = function (personal) {
         
-        $log.info(personal);
-        $log.info('Modal dismissed at: ' + new Date());
-      if (personal) {
-          
-        personal.$remove();
+        if (confirm("Are you sure?"))
+        {
+            if (personal) {
+                
+                personal.$remove();
 
-        for (var i in this.personals) {
-          if (this.personals[i] === personal) {
-            this.personals.splice(i, 1);
-          }
+                for (var i in this.personals) {
+                    if (this.personals[i] === personal) {
+                        this.personals.splice(i, 1);
+                    }
+                }
+                
+            } else {
+                this.personal.$remove(function () {} );
+            }
         }
-      } else {
-        this.personal.$remove(function () {
-        });
-      }
     };
-   
+    
   }
 ]);
   
 personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'Notify',
   function ($scope, Personals, Notify) {
+    
     // Create new Personal
     this.CreatePrsnl = function () {
         console.log(this.selectedTreatments);
@@ -164,7 +172,7 @@ personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'No
         speciality: this.speciality,
         qualification: this.qualification,
         treatments: this.selectedTreatments,
-        apptSlots: this.apptSlots
+        slots: this.slots
       });
 
 
@@ -180,7 +188,8 @@ personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'No
         $scope.speciality = '';
         $scope.qualification = '';
         $scope.selectedTreatments = null;
-        $scope.apptSlots = null;
+        $scope.slots = null;
+        
         Notify.sendMsg('NewPersonal', {'id': response._id});
         
       }, function (errorResponse) {
@@ -190,8 +199,8 @@ personalsApp.controller('PersonalsCreateController', ['$scope', 'Personals', 'No
   }
 ]);
 
-personalsApp.controller('PersonalsUpdateController', ['$scope', 'Personals',
-  function ($scope, Personals) {
+personalsApp.controller('PersonalsUpdateController', ['$scope',
+  function ($scope) {
     
     // Update existing Personal
     this.UpdatePrsnl = function (updtpersonal) {
@@ -269,21 +278,23 @@ personalsApp.controller('ApptTypeController', ['$scope', 'ApptTypes',
     
     // Remove existing Personal
     $scope.remove = function (procedure) {
-        if (procedure) {
+        if (confirm("Are you sure?"))
+        {
+            if (procedure) {
 
-            procedure.$remove();
+                procedure.$remove();
 
-            for (var i in this.procedureList) {
-                if (this.procedureList[i] === procedure) {
-                    this.procedureList.splice(i, 1);
+                for (var i in this.procedureList) {
+                    if (this.procedureList[i] === procedure) {
+                        this.procedureList.splice(i, 1);
+                    }
                 }
+            } else {
+                this.procedure.$remove(function () {
+                    
+                });
             }
-        } else {
-            this.procedure.$remove(function () {
-                
-            });
         }
-        
     };
     
     // Update existing Personal
@@ -318,10 +329,10 @@ personalsApp.controller('ApptTypeController', ['$scope', 'ApptTypes',
   }
 ]);
 
-personalsApp.controller('ApptSlotController', ['$scope', 
-  function ($scope) {
+personalsApp.controller('ApptSlotController', ['$scope', '$rootScope',
+  function ($scope, $rootScope) {
     
-    $scope.slotList = [];
+    $rootScope.slotList = [];
     $scope.slot = [];
     $scope.disabled = false;
     
@@ -336,59 +347,30 @@ personalsApp.controller('ApptSlotController', ['$scope',
 	];
     
     
-    var refresh = function() {
-        //$scope.slotList = ApptTypes.query();
+    var refresh = function(personal) {
+        console.log(personal);
+        $scope.slotList = personal.slots;
         $scope.slot = '';
         $scope.disabled = false;
     };
-
-    //refresh();
     
     // Create new Appt Slot
     $scope.addSlots= function () {
-
-        // Create new Appt Type object
-        /*var apptType = new ApptTypes({
-            description: $scope.procedure.description,
-            duration: $scope.procedure.duration,
-            price: $scope.procedure.price
-            
-        });
-
-        // Redirect after save
-        apptType.$save(function (response) {
-
-            // Clear form fields
-            $scope.procedure.description = '';
-            $scope.procedure.duration = '';
-            $scope.procedure.price = '';
-            
-            refresh();
         
-        }, function (errorResponse) {
-            $scope.error = errorResponse.data.message;
-        });*/
-        
-        $scope.slotList.push({
+        $rootScope.slotList.push({
             day: $scope.slot.selectedDay.label,
-            startTimeHour: $scope.slot.startTimeHour,
-            startTimeMin: $scope.slot.startTimeMin,
-            endTimeHour: $scope.slot.endTimeHour,
-            endTimeMin: $scope.slot.endTimeMin,
             location: $scope.slot.location,
-            starttime: String($scope.slot.startTimeHour) + ':' + String($scope.slot.startTimeMin),
-            endtime: String($scope.slot.endTimeHour) + ':' + String($scope.slot.endTimeMin)
+            starttime: $scope.slot.starttime,
+            endtime: $scope.slot.endtime
             
         });
     
     };
     
     // Remove existing Slot
-    $scope.remove = function (slot) {
+    $scope.remove = function (personal, slot) {
         if (slot) {
-
-            slot.$remove();
-
+            
             for (var i in this.slotList) {
                 if (this.slotList[i] === slot) {
                     this.slotList.splice(i, 1);
@@ -403,12 +385,23 @@ personalsApp.controller('ApptSlotController', ['$scope',
     };
     
     // Update existing Slot
-    $scope.update = function (updtslot) {
+    $scope.update = function (personal) {
 
-        var slot = updtslot;
+        personal.slots = [];
+
+        for (var index = 0; index < $scope.slotList.length; index++) {
+            personal.slots.push(
+                {
+                    day: $scope.slotList[index].day,
+                    starttime: $scope.slotList[index].starttime,
+                    endtime: $scope.slotList[index].endtime,
+                    location: $scope.slotList[index].location  
+                }   
+            );
+        }
       
-        slot.$update(function () {
-            refresh();
+        personal.$update(function () {
+            refresh(personal);
         }, function (errorResponse) {
             $scope.error = errorResponse.data.message;
             console.log(errorResponse.data.message);
