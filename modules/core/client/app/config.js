@@ -16,7 +16,8 @@ var ApplicationConfiguration = (function () {
     'GoogleCalendarService',
     'EventUtil',
     'angular-multi-select',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    'ui.timepicker'
     ];
 
   // Add a new vertical module

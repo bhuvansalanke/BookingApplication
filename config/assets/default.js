@@ -9,7 +9,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/fullcalendar/dist/fullcalendar.css',
         'public/lib/angular-motion/dist/angular-motion.css',
-        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.css'
+        'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.css',
+        'public/lib/jquery-timepicker-jt/jquery.timepicker.css'
       ],
       js: [
         'public/lib/jquery/dist/jquery.min.js',
@@ -29,7 +30,9 @@ module.exports = {
         'public/lib/angular-filter/dist/angular-filter.min.js',
         'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.js',
         'public/lib/angular-strap/dist/angular-strap.min.js',
-        'public/lib/angular-strap/dist/angular-strap.tpl.min.js'
+        'public/lib/angular-strap/dist/angular-strap.tpl.min.js',
+        'public/lib/jquery-timepicker-jt/jquery.timepicker.min.js',
+        'public/lib/angular-jquery-timepicker/src/timepickerdirective.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

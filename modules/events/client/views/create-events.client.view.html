@@ -10,15 +10,15 @@
             
             <div class="form-group" >
                 <label class="control-label col-sm-2" for="repeatSelect"> Select a dentist </label>
-                <select class="dentistList" ng-model="createEventCtrl.selectedDentist" ng-change="createEventCtrl.updateDentist(createEventCtrl.selectedDentist)" 
-                        ng-options="personal.fName + ' ' + personal.lName  for personal in personalsCtrl.personals">
+                <select class="dentistList" ng-model="createEventCtrl.selectedDentist" ng-change="createEventCtrl.updateDentist()" 
+                        ng-options="personal.fName + ' ' + personal.lName  for personal in personalsCtrl.personals" required>
                 </select>
             </div>
 
            <div class="form-group">
                 <label class="control-label col-sm-2" for="treatment">Treatment</label>
-                <select class="dentistList" ng-model="createEventCtrl.selectedTreatment" ng-change="createEventCtrl.updateTreatment(createEventCtrl.selectedTreatment)"
-                        ng-options="treatment.description for treatment in createEventCtrl.selectedDentist.treatments">
+                <select class="dentistList" ng-model="createEventCtrl.selectedTreatment" ng-change="createEventCtrl.updateTreatment()"
+                        ng-options="treatment.description for treatment in createEventCtrl.selectedDentist.treatments" required>
                 </select>
             </div>
             
@@ -29,24 +29,24 @@
             <div class="form-group">
                 <label class="control-label col-sm-3" for="startDate">Start Date</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startDate" 
+                    <input type="text" class="form-control" ng-model="$parent.event.startDate" id="startDate" ng-change="createEventCtrl.updateTime()"
                            uib-datepicker-popup="MM-dd-yyyy" is-open="data.isOpen" ng-click="data.isOpen = true" required>  
                 </div>                
             </div>
             
             <div class="form-group">
                 <label class="control-label col-sm-3" for="startTime">Start Time</label>
-                <div class="col-sm-9">
-                    <uib-timepicker ng-model="$parent.event.startDate" name="startTime"> </uib-timepicker>
-                </div>                
+                <div class="col-sm-9" id="timePick">
+                    <input type="text" class="time start" ng-model="$parent.event.startTime" id="startTime" required>
+                </div>
             </div>
-            
+
         </form>     
     
       </div>
       
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-disabled="contactForm.$invalid || timeForm.$invalid" ng-click="createEventCtrl.addEvent()">Add Event</button>
+        <button type="button" class="btn btn-primary" ng-disabled="contactForm.$invalid || timeForm.$invalid" ng-click="createEventCtrl.addEvent()">Book</button>
         <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
       </div>
 

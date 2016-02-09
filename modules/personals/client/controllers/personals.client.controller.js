@@ -135,7 +135,7 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
     // Remove existing Personal
     this.remove = function (personal) {
         
-        if (confirm("Are you sure?"))
+        if (confirm('Are you sure you want to delete this user?'))
         {
             if (personal) {
                 
@@ -276,9 +276,9 @@ personalsApp.controller('ApptTypeController', ['$scope', 'ApptTypes',
         });
     };
     
-    // Remove existing Personal
+    // Remove existing procedure
     $scope.remove = function (procedure) {
-        if (confirm("Are you sure?"))
+        if (confirm('Are you sure you want to delete this procedure?'))
         {
             if (procedure) {
 

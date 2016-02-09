@@ -2,23 +2,36 @@
 
 var eventsApp = angular.module('events');
 
-eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$location', '$log',
-						function($scope , $googleCalendar, $location, $log) {
+eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$location', '$log', '$filter', '$compile',
+						function($scope , $googleCalendar, $location, $log, $filter, $compile) {
 
 	$scope.events = [];
-	
-	$scope.durations = [
-		{label:'Half Day (4 hours)', hours:4},
-		{label:'Full Day (8 hours)', hours:8}
-	];	
-	
-	this.addEvent = function() {
+    this.selectedDentist = [];
+    this.selectedTreatment = [];
+    
+    $.datepicker.setDefaults({
+    showOn: "both",
+    buttonImageOnly: true,
+    buttonImage: "calendar.gif",
+    buttonText: "Calendar"
+    });
 
+    //Book an appointment            
+	this.addEvent = function() {
+        
+        console.log('Start Time:', $scope.event.startTime);
+        
+        var d = new Date();
+        
+        var time = $scope.event.startTime.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+        $scope.event.startDate.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
+        $scope.event.startDate.setMinutes( parseInt(time[2]) || 0 );
+  
 		console.log('Start Date:', $scope.event.startDate);
 
 		//format end date/time object in to google format
 		var endDate = new Date($scope.event.startDate);
-		endDate.setHours(endDate.getHours() + $scope.event.duration.hours);
+		endDate.setMinutes(endDate.getMinutes() + $scope.treatmentInfo.duration);
 		console.log('End Date:', endDate);
 
 		$googleCalendar.addEvent($scope.event.startDate, endDate, $scope.contactInfo).then(function(result) {
@@ -28,18 +41,43 @@ eventsApp.controller('EventsCreateController', ['$scope', '$googleCalendar','$lo
  
 	};
 	
-    this.selectedDentist = [];
-	this.updateDentist = function(dentist) {
-		$scope.contactInfo = dentist;
+    this.updateDentist = function() {
+		$scope.contactInfo = this.selectedDentist;
         this.selectedTreatment = []; 
-		console.log($scope.contactInfo);
+ 
+	}; 
+    
+    this.updateTreatment = function() {		
+		$scope.treatmentInfo = this.selectedTreatment;
 	};
     
-    this.selectedTreatment = []; 
-    this.updateTreatment = function(treatment) {
+    this.updateTime = function() {	
+        
+        var _date = $filter('date')(new Date($scope.event.startDate), 'EEEE');
+        
+        $('#timePick .time').timepicker('remove');    
+                
+        for (var index = 0; index < this.selectedDentist.slots.length; index++) {
+            
+            var slot = this.selectedDentist.slots[index];
+            
+            if(slot.day == _date)
+            {
+                $scope.event.minTime = $filter('date')(new Date(slot.starttime), 'shortTime');
+                $scope.event.maxTime = $filter('date')(new Date(slot.endtime), 'shortTime');
+
+                $('#timePick .time').timepicker({
+                    'minTime': $filter('date')(new Date(slot.starttime), 'shortTime'),
+                    'maxTime': $filter('date')(new Date(slot.endtime), 'shortTime'),
+                    'showDuration': true,
+                    'step': $scope.treatmentInfo.duration,
+                    'disableTextInput': true,
+                    'timeFormat': 'H:i'
+                });
+            }
+
+        }
 		
-		$scope.treatmentInfo = treatment;
-		console.log($scope.treatmentInfo);
 	};
    
 
