@@ -1,29 +1,23 @@
 
 
-<section data-ng-controller="EventsController as eventCtrl" data-ng-init="load()">
-    
- <div class= "row">
-      
-    <div class="col-xs-8 pad-bottom">
-      <h2>Upcoming Events</h2>
-    </div>
-      
-  </div>
-  
-  <div class= "row">
-        <div class="col-sm-6 pad-bottom" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
-
-        <div class="col-sm-6">
-            <div class="well"" ng-show="currentEvent">
-                <strong>Dentist Name:</strong><pre> {{currentEvent.title}}<br/></pre>
-                <strong>When:</strong> <br/>
-                <pre>{{currentEvent.start | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} <br> to {{currentEvent.end | amDateFormat: 'h:mm:ss a'}}</pre>
-                <strong>Patient Details:</strong> 
-                <pre>{{currentEvent.description.split('\n')[0]}}<br/>{{currentEvent.description.split('\n')[1]}}<br/>{{currentEvent.description.split('\n')[2]}}<br/></pre>
-            </div>
-        </div>
+<section data-ng-controller="EventsController as eventCtrl">
+    <table class="table table-striped table-bordered table-responsive">
+        <thead>
+            <tr>
+            <th>Dentist Name</th>
+            <th>When</th>
+            <th>Patient Details</th>
+            </tr>
+        </thead>
         
-   </div>
+        <tbody>
+            <tr ng-repeat="event in events">
+                <td>{{event.summary}}</td>
+                <td>{{event.start | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{event.end | amDateFormat: 'h:mm:ss a'}}</td>
+                <td>{{event.description.split('\n')[0]}}<br/>{{event.description.split('\n')[1]}}<br/>{{event.description.split('\n')[2]}}</td>
+            </tr>
+        </tbody>
+    
+    </table>
 
 </section>
-

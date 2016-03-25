@@ -13,9 +13,15 @@ angular.module('events').config(['$stateProvider',
           roles: ['user', 'admin']
         }
       })
+      .state('events.main', {
+        url: '/main',
+        templateUrl: 'modules/events/views/events.client.view.html'
+      })
       .state('events.list', {
-        url: '/listappointment',
         templateUrl: 'modules/events/views/list-events.client.view.html'
+      })
+      .state('events.calendar', {
+        templateUrl: 'modules/events/views/calendar-events.client.view.html'
       })
       .state('events.create', {
         url: '/createappointment',

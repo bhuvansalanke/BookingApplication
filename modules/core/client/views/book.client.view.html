@@ -1,6 +1,6 @@
 
 <form class="form-vertical" name="myForm" ng-controller="HomeController">
-    <section data-ng-controller="EventsCreateController as createEventCtrl" data-ng-init="load()">
+    <section ng-controller="EventsCreateController as createEventCtrl" data-ng-init="load()">
         <div class="">
             <h3 class="page-title">Book an Appointment</h3>
         </div>
@@ -79,29 +79,29 @@
             </fieldset>
             <fieldset ng-show="step == 4">
                 <form name="patientForm">
-                <legend>Patient Information</legend>
-                <div class="panel-body">
-                    <md-input-container class="md-icon-float md-block">
-                        <label>Patient Name</label>
-                        <md-icon><i class="text-muted glyphicon glyphicon-user time-icon"></i></md-icon>
-                        <input required name="patientName" ng-model="$parent.event.patientName" type="text" ng-required="true">
-                    </md-input-container>
+                    <legend>Patient Information</legend>
+                    <div class="panel-body">
+                        <md-input-container class="md-icon-float md-block">
+                            <label>Patient Name</label>
+                            <md-icon><i class="text-muted glyphicon glyphicon-user time-icon"></i></md-icon>
+                            <input required name="patientName" ng-model="$parent.event.patientName" type="text" ng-required="true">
+                        </md-input-container>
+                        
+                        <md-input-container md-no-float class="md-block">
+                            <label>Phone Number</label>
+                            <md-icon><i class="text-muted glyphicon glyphicon-phone time-icon"></i></md-icon>
+                            <input required name="patientPhoneNumber" ng-model="$parent.event.patientPhoneNumber" type="text" ng-required="true">
+                        </md-input-container>
+                        
+                        <md-input-container class="md-block">
+                            <label>Email (required)</label>
+                            <md-icon><i class="text-muted glyphicon glyphicon-envelope time-icon"></i></md-icon>
+                            <input required name="patientEmail" ng-model="$parent.event.patientEmail" type="email" ng-required="true">
+                        </md-input-container>
+                    </div>
                     
-                    <md-input-container md-no-float class="md-block">
-                        <label>Phone Number</label>
-                        <md-icon><i class="text-muted glyphicon glyphicon-phone time-icon"></i></md-icon>
-                        <input required name="patientPhoneNumber" ng-model="$parent.event.patientPhoneNumber" type="text" ng-required="true">
-                    </md-input-container>
-                    
-                    <md-input-container class="md-block">
-                        <label>Email (required)</label>
-                        <md-icon><i class="text-muted glyphicon glyphicon-envelope time-icon"></i></md-icon>
-                        <input required name="patientEmail" ng-model="$parent.event.patientEmail" type="email" ng-required="true">
-                    </md-input-container>
-                </div>
-                
-                <md-button class="md-raised md-warn" ng-click="prevStep()">Previous step</md-button>
-                <md-button class="md-primary" ng-click="createEventCtrl.addEvent()" ng-disabled="patientForm.$invalid || patientForm.$pending">Submit</md-button>
+                    <md-button class="md-raised md-warn" ng-click="prevStep()">Previous step</md-button>
+                    <md-button class="md-primary" ng-click="createEventCtrl.addEvent()" ng-disabled="patientForm.$invalid || patientForm.$pending">Submit</md-button>
                 </form>
             </fieldset>
             <fieldset ng-show="step == 5">

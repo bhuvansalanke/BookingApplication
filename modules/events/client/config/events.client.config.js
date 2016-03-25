@@ -6,7 +6,7 @@ angular.module('events').run(['Menus',
     // Add the events dropdown item
     Menus.addMenuItem('topbar', {
       title: 'Scheduling',
-      state: 'events.list'
+      state: 'events.main'
     });
   }
 ]);

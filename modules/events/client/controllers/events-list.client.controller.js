@@ -11,15 +11,10 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
 	//================================================================================
 
 	$scope.events = [];
-	
     $scope.calEvents = [];
 	$scope.eventSources = [];
-    
-    /* alert on eventClick */
-    $scope.alertOnEventClick = function( date, jsEvent, view){
-        console.log(date);
-        $scope.currentEvent = date;
-    };
+    $scope.isCalendarView = true;
+    $scope.isTableView = false;
     
     /* config object */
     $scope.uiConfig = {
@@ -38,7 +33,24 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
       }
     };
 
+    this.toggleview = function () {
+        if($scope.isCalendarView === true)
+        {
+            $scope.isCalendarView = false;
+            $scope.isTableView = true;
+        }  
+        else
+        {
+            $scope.isCalendarView = true;
+            $scope.isTableView = false;
+        }
+    };
     
+    /* alert on eventClick calendar*/
+    $scope.alertOnEventClick = function( date, jsEvent, view){
+        console.log(date);
+        $scope.currentEvent = date;
+    };
     
 	//================================================================================
 	// Scope Functions

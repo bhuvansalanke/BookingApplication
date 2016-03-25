@@ -105,19 +105,6 @@ a:hover .header-profile-image {
     padding-bottom: 10px;
 }
 
-h1 {
-    color: black;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    font-size: 4em;
-    font-family: Arial;
-    margin: -10px 0;
-}
-h3 {
-    color: black;
-    padding-bottom: 20px;
-}
-
 ul {
     list-style: none;
     padding: 0;
