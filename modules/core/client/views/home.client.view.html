@@ -1,25 +1,31 @@
-<section data-ng-controller="HomeController">
-    <div class="row">
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    
+    <body>
+        <div class="body-main" ng-controller="HomeController">
+    
+            <img src="http://confidentdentalcare.in/images/banner_images/banner4.jpg" id="fullscreen">
+            
+            <img class="confident-logo" itemprop="logo" src="http://confidentdentalcare.in/images/confident_logo.png" alt="Confident Dental Care" title="Confident Dental Care">
+            <br>
+            <md-button class="md-raised md-primary book-now" ng-click="go('/booknow')">Book Now</md-button>
+            
+            <ul>
+                <li class="list"><a class="fa fa-2x fa-google-plus" href="https://plus.google.com/+ConfidentdentalcareInBestDentalClinic/posts"><span class="description-main">GitHub</span></a></li>
+                <li class="list"><a class="fa fa-2x fa-facebook" href="http://www.facebook.com/ConfidentDentalCareIndia"><span class="description-main">Facebook</span></a></li> 
+                <li class="list"><a class="fa fa-2x fa-twitter" href="https://twitter.com/Confident_care"><span class="description-main">Twitter</span></a></li>          
+                <li class="list"><a class="fa fa-2x fa-youtube" href="http://www.youtube.com/user/Confidentalhospital"><span class="description-main">Youtube</span></a></li>
+                <li class="list"><a class="fa fa-2x fa-tags" href="http://confidentdental.blogspot.com/"><span class="description-main">Blog</span></a></li>           
+                <li class="list"><a class="fa fa-2x fa-envelope" href="mailto:pro@confidentdentalcare.in?cc=saphal@confidentdentalcare.in,administrator@confidentdentalcare.in"></span></a></li>
+                <li class="list"><a class="fa fa-2x fa-pinterest" href="http://www.pinterest.com/confidentdental/dental-care/"><span class="description-main">Pinterest</span></a></li>     
+            </ul>
+        </div> 
         
-        <div class="col-sm-6" ng-repeat="alert in alerts">
-            <div class="row">
-                <div class="col-xs-4">
-                    <h1 class="pull-right">
-                      <button type="button" class="btn" ng-class="alert.colour">
-                        <i class="glyphicon" ng-class="alert.icon"></i>
-                      </button>
-                    </h1>                   
-                </div>
-                <div class="col-xs-8">
-                    <h1>{{alert.total}}</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-4">
-                    <span class="text-muted">{{alert.description}}</span>
-                </div>
-            </div>
-        </div>     
-  
-    </div>
-</section>
+    </footer>   
+    </body>
+    
+</html>

@@ -1,7 +1,10 @@
 'use strict';
 
-var gcal = require('google-calendar');
 var _ = require('underscore');
+var gcal = require('google-calendar');
+var User = require('mongoose').model('User');
+
+var userProfile=null;
 
 exports.login = function(req, res, next) {
     if(!req.session.accessToken) {
@@ -12,43 +15,54 @@ exports.login = function(req, res, next) {
 };
 
 exports.list = function (req, res, next) {
+  
     var accessToken = req.session.accessToken;
     var calendarId = req.user._doc.email;
     var calendar = new gcal.GoogleCalendar(accessToken);
     
     calendar.events.list(calendarId, {'timeMin': new Date().toISOString()}, function(err, eventList) {
-        if(err) return next(err);
         
-        var objA = _.pluck(eventList, 'accessRole');
-        var objB = _.pick(eventList, ['accessRole']);
-        
-        console.log(objB);
-        
-        
-        for (var index = 0; index < eventList.items.length; index++) {
-            var item = eventList.items[index];
+        if (err) {
+            return res.status(400).send({
+                message: err
+        });
+        } else {
             
-            console.log(item.start.dateTime);
-            console.log(item.end.dateTime);
-            console.log(item.attendees[0].email);
+            var filtered = _.where(eventList.items, {summary: 'Bhuvan D'});
+            console.log(filtered);
             
-            
+            res.send(JSON.stringify(eventList, null, '\t'));
         }
         
-        res.send(JSON.stringify(eventList, null, '\t'));
     });
 };
 
 
 exports.create = function (req, res, next) {
     //map request body to google calendar data structure
+    
+    var profile = userProfile._doc;
+    
     var addEventBody = {
         'status':'confirmed',
         'summary': req.body.contact.fName + ' ' + req.body.contact.lName,
-        'description': req.body.contact, //+ '\n' + req.body.contact.details,
+        'description': req.body.patient.patientName + '\n' + req.body.patient.emailId + '\n' + req.body.patient.contact,
         'organizer': {
-          'email': req.user._doc.email,
+          'email': profile.email,
           'self': true
+        },
+        'reminders':{
+          'useDefault': false,
+          'overrides': [
+              {
+                  'method': 'email',
+                  'minutes': '1440'
+              },
+              {
+                  'method': 'popup',
+                  'minutes': '1140'
+              }
+          ]  
         },
         'start': {
           'dateTime': req.body.startdate,
@@ -58,29 +72,47 @@ exports.create = function (req, res, next) {
         },
         'attendees': [
             {
-              'email': req.user._doc.email,
+              'email': req.body.contact.emailId,
               'organizer': true,
               'self': true,
               'responseStatus': 'needsAction'
             },
             {
-              'email': req.body.contact.emailId,
+              'email': req.body.patient.emailId,
               'organizer': false,
               'responseStatus': 'needsAction'
             }
         ]
-    };
-
-    var calendar = new gcal.GoogleCalendar(req.session.accessToken);
-    calendar.events.insert(req.user._doc.email, addEventBody, function(err, response) {
-        if(err) {
-            console.log(err);
-            return next(err);
+    };  
+   
+    var calendar = new gcal.GoogleCalendar(profile.providerData.accessToken);
+    
+    calendar.events.insert(profile.email, addEventBody, function(err, response) {
+        
+        if (err) {
+            return res.status(400).send({
+                message: err
+        });
+        } else {
+            res.send(response);
         }
-
-        res.send(response);
+        
     });
 
 };
 
+exports.load = function (req, res, next) { 
+  User.findOne({
+    username: 'bhuvansalanke'
+  }, function (err, user) {
+    if (err) {
+      return next(err);
+    } else if (!user) {
+      return next(new Error('Failed to load User '));
+    }
+
+    userProfile = user;
+
+  });
+};
 

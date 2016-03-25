@@ -33,7 +33,170 @@ a:hover .header-profile-image {
   padding-top: 11px !important;
   padding-bottom: 11px !important;
 }
-
-body {
-  background-color: #eeeeee
+.well-header {
+  color: #ffffff;  
+  background: #4169e1;
 }
+.user-cust-list{
+    font-size: 50px;
+    color: blueviolet;
+    padding: 10px 10px 10px 0px;
+}
+.center-div {
+    margin: 0 auto;
+    max-width: 700px;
+}
+.pad-right {
+    padding-right: 30px;
+}
+.pad-bottom {
+    padding-bottom: 30px;
+}
+
+.time-icon{
+    font-size: 20px;
+}
+
+.md-datepicker {
+    position: relative;
+    left: -16px;
+}
+.md-datepicker-input-container{
+    margin-left: 0;
+}
+.md-datepicker-button.md-icon-button {
+    margin-right: 0;
+}
+
+.book-now
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.body-main {
+	color:#fff;
+  	background-color:#fff;
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+#fullscreen {
+    z-index: -999;
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.confident-logo {
+    padding-top: 100px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 4em;
+    font-family: Arial;
+    margin: -10px 0;
+}
+h3 {
+    color: black;
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+.list {
+    border-radius: 100%;
+    border: 2px solid black;
+    color: black;
+    margin: 8px;
+    display: inline-block;
+    list-style: none;
+    width: 65px;
+    height: 65px;
+}
+li:hover {
+    color: black;
+    text-decoration: none;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+}
+.description-main {
+    display: none;
+}
+
+@media (max-width: 450px) {
+ul {
+    text-align: center;
+}
+li {
+    border-radius: 0%;
+    border: none;
+    color: white;
+    margin: 8px;
+    display: block;
+    list-style: none;
+    margin: 10px 0px;
+    text-align: center;
+    height: auto;
+    width: auto;
+}
+li:hover {
+    background-color: none;
+    transition: none;
+}
+a {
+    text-align: justify;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 15px;
+    padding-left: 30px;
+    width: 70%;
+}
+a:hover {
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    transition: 500ms;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+}
+.description {
+    display: inline-block;
+    color: white;
+    font-family: Arial;
+    margin-left: 40px;
+}
+.content {
+    padding-top: 60px;
+}
+}
+
+
+

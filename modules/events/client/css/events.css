@@ -14,3 +14,7 @@
     height: 30px;
     width: 180px;
   }
+  .calendar-pad {
+    padding-left: 50px;
+    padding-right: 50px;
+  }

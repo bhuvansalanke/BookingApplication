@@ -37,9 +37,9 @@
               </div>
             </div>
             
-            <div class="form-group">
+            <div class="form-group" ng-controller="ApptTypeController">
                 <label class="control-label" for="treatment">Treatment</label><br>
-                <angular-multi-select class="controls" ng-controller="ApptTypeController"             
+                <angular-multi-select class="controls"             
                     input-model="procedureList"
                     output-model="createPrsnlCtrl.selectedTreatments"
                     item-label="<[ description ]>"

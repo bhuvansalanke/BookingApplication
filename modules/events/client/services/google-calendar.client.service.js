@@ -11,12 +11,10 @@ angular.module('GoogleCalendarService', [], function($provide){
 		var baseUrl = 'http://localhost:3000';
 
 		return {
-			getEvents: function(){
+			load: function(){
 				var defer = $q.defer();
 
-				$http.get(baseUrl+'/events').then(function(response){
-
-					console.log(response);
+				$http.get(baseUrl+'/eventload').then(function(response){
 
 					if(response.status === 200){
 						$scope.$broadcast('GoogleEventsReceived', response.data.items);
@@ -32,17 +30,36 @@ angular.module('GoogleCalendarService', [], function($provide){
 
 				return defer.promise;
 			},
-			addEvent: function(scheduledDate, endDate, contactInfo){
+			getEvents: function(){
+				var defer = $q.defer();
+
+				$http.get(baseUrl+'/events').then(function(response){
+
+					if(response.status === 200){
+						$scope.$broadcast('GoogleEventsReceived', response.data.items);
+						defer.resolve(response.data.items);
+					}
+
+					else{
+						$scope.$broadcast('GoogleError', response.data);
+						defer.reject(response.data);
+					}
+
+				});
+
+				return defer.promise;
+			},
+			addEvent: function(scheduledDate, endDate, contactInfo, patientInfo){
 				var defer = $q.defer();
 
 				var postData = {
 					startdate: scheduledDate,
 					enddate: endDate,
-					contact: contactInfo
+					contact: contactInfo,
+                    patient: patientInfo
 				};
 
 				$http.post(baseUrl+'/event', postData, {'Content-Type':  'application/json'}).then(function(response){
-					console.log('Add Event Response:', response);
 
 					if(response.status === 200){
 						$scope.$broadcast('eventAddedSuccess', response.data);

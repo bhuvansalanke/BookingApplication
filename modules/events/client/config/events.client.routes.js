@@ -14,7 +14,7 @@ angular.module('events').config(['$stateProvider',
         }
       })
       .state('events.list', {
-        url: '',
+        url: '/listappointment',
         templateUrl: 'modules/events/views/list-events.client.view.html'
       })
       .state('events.create', {
