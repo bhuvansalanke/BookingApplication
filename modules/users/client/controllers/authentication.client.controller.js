@@ -9,7 +9,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {
-      $location.path('/');
+      $location.path('/events/main');
     }
 
     $scope.signup = function () {
@@ -18,7 +18,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'main', $state.previous.params);
+        $state.go($state.previous.state.name || 'events.main', $state.previous.params);
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -30,7 +30,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'main', $state.previous.params);
+        $state.go($state.previous.state.name || 'events.main', $state.previous.params);
       }).error(function (response) {
         $scope.error = response.message;
       });
