@@ -94,12 +94,15 @@ a:hover .header-profile-image {
 }
 
 .navbar-brand {
-    color: white;
     font: normal 26px 'Cookie';
-    margin-left: 26px;
+    margin-left: 25px;
 }
 
 .navbar-items {
-    color: white;
     margin: 5px 15px;
+    margin-right: 25px;
+}
+
+.navbar-toggle {
+    color:  black;
 }
