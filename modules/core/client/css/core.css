@@ -80,7 +80,7 @@ a:hover .header-profile-image {
 }
 
 .body-main {
-	color:#fff;
+	color:  #ffffff;
   	background-color:#fff;
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
     padding-top: 40px;
@@ -93,3 +93,13 @@ a:hover .header-profile-image {
     padding-bottom: 10px;
 }
 
+.navbar-brand {
+    color: white;
+    font: normal 26px 'Cookie';
+    margin-left: 26px;
+}
+
+.navbar-items {
+    color: white;
+    margin: 5px 15px;
+}
