@@ -2,8 +2,8 @@
 
 var eventsApp = angular.module('events');
 
-eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModal', '$log',
-						function($scope , $googleCalendar, $uibModal, $log) {
+eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModal', '$log', '$mdSidenav',
+						function($scope , $googleCalendar, $uibModal, $log, $mdSidenav) {
 
 
 	//================================================================================
@@ -15,6 +15,7 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
 	$scope.eventSources = [];
     $scope.isCalendarView = true;
     $scope.isTableView = false;
+    $scope.isSidenavOpen = false;
     
     /* config object */
     $scope.uiConfig = {
@@ -47,8 +48,8 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
     
     /* alert on eventClick calendar*/
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        console.log(date);
         $scope.currentEvent = date;
+        $mdSidenav('right').toggle();
     };
     
 	//================================================================================

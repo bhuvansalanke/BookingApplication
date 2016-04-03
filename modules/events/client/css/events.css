@@ -18,6 +18,9 @@
     padding-left: 50px;
     padding-right: 50px;
   }
+  .side-well {
+      background: white;
+  }
   
   .fc {
     width: 95%;
