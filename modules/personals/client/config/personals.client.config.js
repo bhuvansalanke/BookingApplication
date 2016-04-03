@@ -5,7 +5,7 @@ angular.module('personals').run(['Menus',
   function (Menus) {
     // Add the personals dropdown item
     Menus.addMenuItem('topbar', {
-      title: 'Admin',
+      title: 'Configuration',
       state: 'personals',
       type: 'dropdown',
       roles: ['user']
