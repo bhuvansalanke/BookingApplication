@@ -21,6 +21,10 @@
   .side-well {
       background: white;
   }
+  .cal-icon {
+      font-size: 25px;
+      float:right;
+  }
   
   .fc {
     width: 95%;
