@@ -9,3 +9,5 @@ angular.module('core').controller('HomeController', ['$scope', '$location',
     
   }
 ]);
+
+

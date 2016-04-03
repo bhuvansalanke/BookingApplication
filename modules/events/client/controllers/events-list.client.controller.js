@@ -19,7 +19,6 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        height: 450,
         editable: false,
         stick: true,
         header:{

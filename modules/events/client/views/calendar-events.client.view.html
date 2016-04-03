@@ -1,12 +1,12 @@
 
 
-<section class="container" ng-controller="EventsController as eventCtrl">
+<section ng-controller="EventsController as eventCtrl">
 
     <div class= "row">
-        <div class="col-sm-6 pad-bottom" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+        <div class="row pad-bottom" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 
-        <div class="col-sm-6">
-            <div class="well"" ng-show="currentEvent">
+        <div class="">
+            <div class="well" ng-show="currentEvent">
                 <strong>Dentist Name:</strong><pre> {{currentEvent.title}}<br/></pre>
                 <strong>When:</strong> <br/>
                 <pre>{{currentEvent.start | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{currentEvent.end | amDateFormat: 'h:mm:ss a'}}</pre>

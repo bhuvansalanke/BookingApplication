@@ -1,19 +1,23 @@
 
 <section class="container" data-ng-controller="EventsController as eventCtrl">
-
-    <div class= "row">
-        <div class="col-xs-8 col-sm-6 col-md-4"><h2>Upcoming Events</h2></div>
-        <div class="form-group col-xs-4 col-sm-6 col-md-8 text-right pull-down">
-            <h2>
-            <button type="button" class="btn btn-success text-center" ng-click="eventCtrl.toggleview()">
-                <i class="glyphicon glyphicon-list"></i>
-            </button>                  
+    
+    <div class="panel panel-default"> 
+                   
+        <div class="panel-heading">
+            <h2> Upcoming Events
+                <button type="button" class="btn btn-primary" style="float:right" ng-click="eventCtrl.toggleview()">
+                    <i class="glyphicon glyphicon-list"></i> View</button>
             </h2>
+            
         </div>
+        
+        <div class="panel-body">
+            <div ng-include="'modules/events/views/calendar-events.client.view.html'" ng-show="isCalendarView"></div>
+            <div ng-include="'modules/events/views/list-events.client.view.html'" ng-show="isTableView"></div>
+        </div>
+        
     </div>
-
-    <div ng-include="'modules/events/views/calendar-events.client.view.html'" ng-show="isCalendarView"></div>
-    <div ng-include="'modules/events/views/list-events.client.view.html'" ng-show="isTableView"></div>
+ 
     
 </section>
 

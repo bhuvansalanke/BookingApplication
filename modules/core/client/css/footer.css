@@ -25,39 +25,11 @@
 	width: 40%;
 }
 
-/* The company logo */
-
-.footer-distributed h3{
-	color:  #ffffff;
-	font: normal 26px 'Cookie', cursive;
-	margin: 0;
-}
-
-.footer-distributed h3 span{
-	color:  #5383d3;
-}
-
-/* Footer links */
-
-.footer-distributed .footer-links{
-	color:  #ffffff;
-	margin: 20px 0 12px;
-	padding: 0;
-}
-
-.footer-distributed .footer-links a{
-	display:inline-block;
-	line-height: 1.8;
-	text-decoration: none;
-	color:  inherit;
-}
-
 .footer-distributed .footer-company-name{
 	color:  #8f9296;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
-    padding-bottom: 10px;
 }
 
 /* Footer Center */
@@ -69,8 +41,10 @@
 
 .footer-distributed .footer-center p a{
     font-size: 14px;
-	color: gray;
-	text-decoration: none;;
+	color: #8f9296;
+    font-weight: normal;
+	text-decoration: none;
+    margin: 0;
 }
 
 

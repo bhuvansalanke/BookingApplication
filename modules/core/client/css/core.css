@@ -106,3 +106,8 @@ a:hover .header-profile-image {
 .navbar-toggle {
     color:  black;
 }
+
+.page-title {
+    text-align: center;
+    font: normal 26px 'Cookie';
+}
