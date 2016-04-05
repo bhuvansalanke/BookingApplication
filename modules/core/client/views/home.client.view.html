@@ -10,10 +10,53 @@
             
             <img class="confident-logo" itemprop="logo" src="http://confidentdentalcare.in/images/confident_logo.png" alt="Confident Dental Care" title="Confident Dental Care">
             <br>
+  
+            <div class="autocompletedemoCustomTemplate text-center" ng-controller="PersonalsController as personalsCtrl">   
+        
+            <md-content class="md-padding">
+                <md-tabs class="" md-selected="data.selectedIndex"  md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+                    <md-tab id="tab1">
+                        <md-tab-label>Dentist</md-tab-label>
+                    </md-tab>
+                    <md-tab id="tab2">
+                        <md-tab-label>Treatment</md-tab-label>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+            
+            <form name="autocompleteForm">
+            <md-autocomplete required md-input-name="autocomplete" 
+                    md-selected-item="personalsCtrl.selectedDentist"
+                    md-selected-item-change="createEventCtrl.updateDentist(item)" 
+                    md-search-text="searchText" 
+                    md-items="item in personalsCtrl.personals | filter:search | orderBy:'fName'" 
+                    md-item-text="item.fName  + ' ' + item.lName"
+                    placeholder="Search dentist"
+                    md-menu-class="autocomplete-custom-template">
+                <md-item-template>
+                    <span class="item-title">
+                        <span><i class="glyphicon glyphicon-user user-cust-list"></i></span>
+                        <span class="user-title">{{item.fName + ' ' + item.lName}}</span>
+                    </span>
+                    <span class="text-muted sub-title">
+                        {{ item.speciality }}
+                    </span>
+                    
+                </md-item-template>
+                <div ng-messages="autocompleteForm.autocomplete.$error">
+                    <div ng-message="required">This field is required</div>
+                </div>
+            </md-autocomplete>
+            </form>
+        
+        </div>
+        
             <md-button class="md-raised md-primary book-now" ng-click="go('/booknow')"> BOOK APPOINTMENT <i class="glyphicon glyphicon-arrow-right push-right"></i></md-button>
          
         </div> 
+
     </body>
+    
         
     <footer class="footer-distributed">
         <div class="footer-left">

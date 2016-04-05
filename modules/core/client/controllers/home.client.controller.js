@@ -7,6 +7,11 @@ angular.module('core').controller('HomeController', ['$scope', '$location',
         $location.path( path );
     };
     
+    $scope.data = {
+      selectedIndex: 0,
+      bottom: false
+    };
+    
   }
 ]);
 
