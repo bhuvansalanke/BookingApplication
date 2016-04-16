@@ -8,15 +8,16 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
   function ($scope, $stateParams, Personals, $uibModal, $log, $q, slotService) 
 {
       
-  // Find a list of Personals
-  this.personals = Personals.query();
+    // Find a list of Personals
+    this.personals = Personals.query();
   
-  console.log(this.personals);
+    console.log(this.personals);
   
-  // Open a modal window to create a single personal record
-  this.modelCreate = function (size) {
+    // Open a modal window to create a single personal record
+  
+    this.modelCreate = function (size) {
 
-    var modalInstance = $uibModal.open({
+        var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'modules/personals/views/create-personal.client.view.html',
         
@@ -34,13 +35,13 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
         size: size
         });
 
-        modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
+        modalInstance.result.then(function (selectedItem) {$scope.selected = selectedItem;}
+        , function () {
+                $log.info('Modal dismissed at: ' + new Date());
         });
+
     };
-    
+
     // Open a modal window to update a single personal record
     this.modelUpdate = function (size, selectedPersonal) {
         
@@ -89,6 +90,8 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
         }, function () {
           
       });
+    
+
     };
     
     // Open a modal window to update a single personal record

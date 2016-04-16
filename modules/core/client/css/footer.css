@@ -1,15 +1,15 @@
 .footer-distributed{
-	background-color: silver;
+	background-color: lightgray;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-    position:fixed;
     bottom:0;
-    width:100%;
-	padding: 15px 50px;
+	padding: 10px 30px;
 	margin-top: 80px;
+    font-size: 10pt;
+    position: absolute;
 }
 
 .footer-distributed .footer-left,
@@ -23,6 +23,7 @@
 
 .footer-distributed .footer-left{
 	width: 40%;
+    margin-top: 5px;
 }
 
 .footer-distributed .footer-company-name{
@@ -35,7 +36,9 @@
 /* Footer Center */
 
 .footer-distributed .footer-center{
-	width: 35%;
+	width: 30%;
+    float: center;
+    margin-top: 5px;
 }
 
 
@@ -50,8 +53,13 @@
 
 /* Footer Right */
 
+.footer-distributed .footer-right{
+	float: right;
+    margin-top: 3px;
+}
+
 .footer-distributed .footer-icons{
-    margin-left: 15px;
+    margin: 0;
 }
 
 .footer-distributed .footer-icons a{

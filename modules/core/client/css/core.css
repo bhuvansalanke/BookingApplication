@@ -134,9 +134,14 @@ a:hover .header-profile-image {
     font-size: 20px;
     padding-left: 50px;
 }
+
+ .panel-search {
+     margin: 0 auto;
+     max-width: 700px;
+ }
  
-.autocompletedemoCustomTemplate {
-    color: black;
-    padding-left: 20%;
-    padding-right: 20%;
-}
+.input-search {
+     padding: 5px 5px 5px 5px;
+     
+ }
+ 

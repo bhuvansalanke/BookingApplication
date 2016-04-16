@@ -17,6 +17,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         url: '/booknow',
         templateUrl: 'modules/core/views/book.client.view.html'
       })
+      .state('booklast', {
+        url: '/booklast',
+        templateUrl: 'modules/core/views/book-last.client.view.html'
+      })
       .state('not-found', {
         url: '/not-found',
         templateUrl: 'modules/core/views/404.client.view.html'
