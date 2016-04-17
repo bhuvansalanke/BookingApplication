@@ -3,6 +3,8 @@
 var _ = require('underscore');
 var gcal = require('google-calendar');
 var User = require('mongoose').model('User');
+var path = require('path');
+var errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 var userProfile=null;
 
@@ -91,8 +93,8 @@ exports.create = function (req, res, next) {
         
         if (err) {
             return res.status(400).send({
-                message: err
-        });
+                message: errorHandler.getErrorMessage(err)
+            });
         } else {
             res.send(response);
         }

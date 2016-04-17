@@ -1,0 +1,32 @@
+<md-dialog aria-label="Success" ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmed</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <i class="glyphicon glyphicon-remove"></i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2 class="text text-center">Thank you!</h2>
+        <p class="text text-center">Your Appointment is Confirmed</p>
+        <md-divider></md-divider>
+        <div class="panel panel-body">
+            <p>Your booking request has been <strong>received.</strong> Please check your inbox for confirmation.</p>
+            <p><strong>Your booking details:</strong></p>
+            <p>Dentist Name: {{ selectedDentist.fName + ' ' + selectedDentist.lName}} </p>
+            <p>Treatment: {{ selectedTreatment.description }}</p>
+            <p>Patient Name: {{ event.patientName }} </p>
+            Appointment Date and Time: {{event.startDate | date: 'medium'}}
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="answer('okay')">
+         Okay
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

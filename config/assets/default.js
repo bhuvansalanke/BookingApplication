@@ -11,7 +11,8 @@ module.exports = {
         'public/lib/angular-motion/dist/angular-motion.css',
         'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.css',
         'public/lib/jquery-timepicker-jt/jquery.timepicker.css',
-        'public/lib/angular-material/angular-material.css'
+        'public/lib/angular-material/angular-material.css',
+        'public/lib/font-awesome/font-awesome.css'
       ],
       js: [
         'public/lib/jquery/dist/jquery.min.js',

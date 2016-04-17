@@ -59,7 +59,8 @@ angular.module('GoogleCalendarService', [], function($provide){
                     patient: patientInfo
 				};
 
-				$http.post(baseUrl+'/event', postData, {'Content-Type':  'application/json'}).then(function(response){
+				$http.post(baseUrl+'/event', postData, {'Content-Type':  'application/json'})
+                .then(function(response){
 
 					if(response.status === 200){
 						$scope.$broadcast('eventAddedSuccess', response.data);
@@ -70,7 +71,12 @@ angular.module('GoogleCalendarService', [], function($provide){
 						$scope.$broadcast('GoogleError', response.data);
 						defer.reject(response.data);
 					}
-				});
+				}, 
+                function(response) {
+                    console.log(response.data);
+                    $scope.$broadcast('GoogleError', response.data);
+                    defer.reject(response.data);
+                });
 
 				return defer.promise;
 			}

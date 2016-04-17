@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('core').controller('HomeController', 
-['$scope', '$location', '$controller', '$timeout', '$q', 'Personals', 'ApptTypes',
-  function ($scope, $location, $controller, $timeout, $q, Personals, ApptTypes) {
+['$scope', '$location', '$controller', '$timeout', '$q', 'Personals', 'ApptTypes', 'prsnlService',
+  function ($scope, $location, $controller, $timeout, $q, Personals, ApptTypes, prsnlService) {
     
     $scope.go = function ( path ) {
         $location.path( path );
@@ -10,8 +10,9 @@ angular.module('core').controller('HomeController',
     
     $scope.nextPage = function ( ) {
         
-        console.log(prsnl.selectedPrsnl);
-        console.log(appt.selectedAppt);
+        prsnlService.addDentist(prsnl.selectedPrsnl);
+        prsnlService.addTreatment(appt.selectedAppt);
+        
         if(prsnl.selectedPrsnl && appt.selectedAppt)
             $location.path('/booklast');
     };
@@ -21,17 +22,6 @@ angular.module('core').controller('HomeController',
       bottom: false
     };
     
-    var prsnl = this;
-    // list of `state` value/display objects
-    prsnl.personals     = Personals.query();
-    prsnl.personalsAll = prsnl.personals;
-    prsnl.selectedPrsnl  = null;
-    prsnl.searchPrsnl    = null;
-    prsnl.simulateQuery = false;
-    prsnl.isDisabled    = false;
-    prsnl.queryPrsnlSearch   = queryPrsnlSearch;
-    prsnl.selectedPrsnlChange = selectedPrsnlChange;
-
     /**
      * Search for personals... use $timeout to simulate
      * remote dataservice call.
@@ -54,7 +44,7 @@ angular.module('core').controller('HomeController',
     }
     
     function selectedPrsnlChange(item) {
-        console.log(item);
+
       if (item){
           appt.apptTypes = item.treatments;
       }
@@ -62,13 +52,16 @@ angular.module('core').controller('HomeController',
         appt.apptTypes = ApptTypes.query();
     }
     
-    var appt = this;
-    // list of `state` value/display objects
-    appt.apptTypes     = ApptTypes.query();
-    appt.selectedAppt  = null;
-    appt.searchAppt    = null;
-    appt.queryApptSearch   = queryApptSearch;
-    appt.selectedApptChange = selectedApptChange;
+    var prsnl = this;
+
+    prsnl.personals     = Personals.query();
+    prsnl.personalsAll = prsnl.personals;
+    prsnl.selectedPrsnl  = null;
+    prsnl.searchPrsnl    = null;
+    prsnl.simulateQuery = false;
+    prsnl.isDisabled    = false;
+    prsnl.queryPrsnlSearch   = queryPrsnlSearch;
+    prsnl.selectedPrsnlChange = selectedPrsnlChange;
 
     /**
      * Search for Appts... use $timeout to simulate
@@ -130,6 +123,15 @@ angular.module('core').controller('HomeController',
           }
       };
     }
+    
+    var appt = this;
+    // list of `state` value/display objects
+    appt.apptTypes     = ApptTypes.query();
+    appt.selectedAppt  = null;
+    appt.searchAppt    = null;
+    appt.queryApptSearch   = queryApptSearch;
+    appt.selectedApptChange = selectedApptChange;
+
     
   }
 ]);

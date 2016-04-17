@@ -6,45 +6,12 @@
     </head>
     
     <body>
-        <div class="body-main" ng-controller="HomeController">
-            
-            <img class="confident-logo" itemprop="logo" src="http://confidentdentalcare.in/images/confident_logo.png" alt="Confident Dental Care" title="Confident Dental Care">
-            
-            <br>
-            <!--
-            <div layout-gt-sm="row" class="text text-center" ng-controller="PersonalsController as personalsCtrl"> 
-            
-                <form name="autocompleteForm">
-                <md-autocomplete required md-input-name="autocomplete" 
-                        md-selected-item="$scope.selectedDentist"
-                        md-search-text="searchText" 
-                        md-items="item in personalsCtrl.personals | filter:search | orderBy:'fName'" 
-                        md-item-text="item.fName  + ' ' + item.lName"
-                        placeholder="Search dentist"
-                        md-menu-class="autocomplete-custom-template"
-                        md-selected-item-change="$scope.selectedItemChange(item)">
-                    <md-item-template>
-                        <span class="item-title">
-                            <span><i class="glyphicon glyphicon-user user-cust-list"></i></span>
-                            <span class="user-title">{{item.fName + ' ' + item.lName}}</span>
-                        </span>
-                        <span class="text-muted sub-title">
-                            {{ item.speciality }}
-                        </span>
-                        
-                    </md-item-template>
-                    <div ng-messages="autocompleteForm.autocomplete.$error">
-                        <div ng-message="required">This field is required</div>
-                    </div>
-                </md-autocomplete>
-                </form>
-            </div>
-        
-        <md-button class="md-raised md-primary book-now" ng-click="go('/booknow')"> BOOK APPOINTMENT <i class="glyphicon glyphicon-arrow-right push-right"></i></md-button>
-        -->
-        </div> 
-        
+ 
         <div ng-controller="HomeController as ctrl" layout="column" ng-cloak>
+            <div class="body-main">
+                <img class="confident-logo" itemprop="logo" src="http://confidentdentalcare.in/images/confident_logo.png" alt="Confident Dental Care" title="Confident Dental Care">
+                <br>
+            </div>
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()" name="searchForm">
                 <div layout-gt-sm="row" class="panel panel-body panel-search">
@@ -81,7 +48,7 @@
                         </md-autocomplete>
                     </div>
                     <div class="input-search">
-                        <md-button class="md-icon-button md-raised md-primary" ng-click="go('/booknow')"><i class="glyphicon glyphicon-arrow-right"></i></md-button>
+                        <md-button class="md-icon-button md-raised md-primary" aria-label="book" ng-click="nextPage()"><i class="glyphicon glyphicon-arrow-right"></i></md-button>
                     </div>
                 </div>
                 </form>

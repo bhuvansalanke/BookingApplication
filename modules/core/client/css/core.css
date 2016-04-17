@@ -53,22 +53,32 @@ a:hover .header-profile-image {
 }
 
 .pad-bottom {
-    padding-bottom: 30px;
+    margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 .time-icon{
     font-size: 20px;
 }
 
-.md-datepicker {
-    position: relative;
-    left: -16px;
-}
 .md-datepicker-input-container{
     margin-left: 0;
 }
 .md-datepicker-button.md-icon-button {
     margin-right: 0;
+}
+.md-button.md-icon-button {
+    /* margin: 0 6px; */
+    height: 40px;
+    min-width: 0;
+    line-height: 24px;
+    padding: 8px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.md-button.md-icon-button {
+    margin: 0px;
 }
 
 .book-now
@@ -143,5 +153,9 @@ a:hover .header-profile-image {
 .input-search {
      padding: 5px 5px 5px 5px;
      
+ }
+ 
+ .panel-left {
+     background: lightblue;
  }
  

@@ -35,8 +35,8 @@ personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Perso
         size: size
         });
 
-        modalInstance.result.then(function (selectedItem) {$scope.selected = selectedItem;}
-        , function () {
+        modalInstance.result.then(function (selectedItem) 
+            {$scope.selected = selectedItem;}, function () {
                 $log.info('Modal dismissed at: ' + new Date());
         });
 
