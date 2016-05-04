@@ -48,7 +48,9 @@ exports.update = function (req, res) {
   personal.qualification = req.body.qualification;
   personal.treatments = req.body.treatments;
   personal.slots = req.body.slots;
-
+  personal.experience = req.body.experience;
+  personal.rating = req.body.rating;
+  
   personal.save(function (err) {
     if (err) {
       return res.status(400).send({

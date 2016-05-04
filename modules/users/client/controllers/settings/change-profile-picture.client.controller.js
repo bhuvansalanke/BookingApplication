@@ -7,8 +7,20 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
     // Create file uploader instance
     $scope.uploader = new FileUploader({
-      url: 'api/users/picture'
+      url: 'api/users/picture',
+      alias: 'newProfilePicture',
+      inMemory: true
     });
+
+    $scope.arrayBufferToBase64 = function (buffer) {
+      var binary = '';
+      var bytes = new Uint8Array(buffer);
+      var len = bytes.byteLength;
+      for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return window.btoa(binary);
+    }
 
     // Set file uploader image filter
     $scope.uploader.filters.push({

@@ -1,14 +1,18 @@
 'use strict';
 
 /**
- * Module dependencies.
+ * Module dependencies
  */
 var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
-  User = mongoose.model('User');
+  multer = require('multer'),
+  crypto = require('crypto'),
+  config = require(path.resolve('./config/config')),
+  User = mongoose.model('User'),
+  mime = require('mime');
 
 /**
  * Update user details
@@ -53,16 +57,31 @@ exports.update = function (req, res) {
  */
 exports.changeProfilePicture = function (req, res) {
   var user = req.user;
-  var message = null;
+  var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads/')
+    },
+    filename: function (req, file, cb) {
+      crypto.pseudoRandomBytes(16, function (err, raw) {
+        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      });
+    }
+  });
+  var upload = multer({ storage: storage }).single('newProfilePicture');
+  //var upload = multer(config.uploads.profileUpload).single('newProfilePicture');
+  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+
+  // Filtering to upload only images
+  upload.fileFilter = profileUploadFileFilter;
 
   if (user) {
-    fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+    upload(req, res, function (uploadError) {
       if (uploadError) {
         return res.status(400).send({
           message: 'Error occurred while uploading profile picture'
         });
       } else {
-        user.profileImageURL = 'modules/users/client/img/profile/uploads/' + req.files.file.name;
+        user.profileImageURL = config.uploads.profileUpload.dest + req.file.filename;
 
         user.save(function (saveError) {
           if (saveError) {

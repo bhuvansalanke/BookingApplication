@@ -19,7 +19,9 @@ var ApplicationConfiguration = (function () {
     'mgcrea.ngStrap',
     'ui.timepicker',
     'ngMaterial',
-    'angularMoment'
+    'angularMoment',
+    'angular-input-stars',
+    'multipleSelect'
     ];
 
   // Add a new vertical module

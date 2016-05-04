@@ -45,6 +45,16 @@ var PersonalSchema = new Schema({
         default: '',
         trim: true
     },
+    experience: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    rating: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
     
     treatments: [ApptTypeSchema],
     

@@ -1,18 +1,18 @@
 <div class="list-group">
     <div class="col-sm-6 col-md-4 extra-padding" data-ng-repeat="personal in personalsCtrl.personals | filter:searchText">
-      <a class="list-group-item">      
-        
-        <h4 class="prsnl-cust-list text-center">
+        <a class="list-group-item">
+
+            <h4 class="prsnl-cust-list text-center">
           <i class="glyphicon glyphicon-user prsnl-list"
                ng-class="{'text-primary': personal.isConsultant, 'text-danger': !personal.isConsultant}"></i>
         </h4>
-        
-        <div class="row">         
-          <div class="col-xs-10 col-xs-offset-1 pull-up">
-            
-            <h4>{{personal.fName}} {{personal.lName}}</h4>
-            
-            <small class="list-group-item-text text-muted text-xs">
+
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 pull-up">
+
+                    <h4>{{personal.fName}} {{personal.lName}}</h4>
+
+                    <small class="list-group-item-text text-muted text-xs">
                 <p>{{personal.contact}}</p>
                 <p>{{personal.emailId}}</p>
                 
@@ -31,14 +31,13 @@
                   </button>
                 </span>
             </small>
-            
-          </div>
-        </div>
-      </a>
+
+                </div>
+            </div>
+        </a>
     </div>
 </div>
-  
+
 <div class="alert alert-warning text-center" data-ng-if="personals.$resolved && !personals.length">
     No personals yet, why don't you <a data-ui-sref="personals.create">create one</a>?
 </div>
-
