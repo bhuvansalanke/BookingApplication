@@ -12,5 +12,13 @@ module.exports = {
   sessionSecret: 'MEAN',
   sessionCollection: 'sessions',
   logo: 'modules/core/img/brand/logo.png',
-  favicon: 'modules/core/img/brand/favicon.ico'
+  favicon: 'modules/core/img/brand/favicon.ico',
+  uploads: {
+    profileUpload: {
+      dest: './modules/users/img/profile/uploads/', // Profile upload destination path
+      limits: {
+        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
+      }
+    }
+    }
 };

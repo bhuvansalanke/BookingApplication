@@ -46,9 +46,13 @@ exports.update = function (req, res) {
   personal.speciality = req.body.speciality;
   personal.isConsultant = req.body.isConsultant;
   personal.qualification = req.body.qualification;
+  personal.experience = req.body.experience;
+  personal.rating = req.body.rating;
   personal.treatments = req.body.treatments;
   personal.slots = req.body.slots;
-
+  personal.adminemailId = req.body.adminemailId;
+  personal.image = req.body.contact + '.png';
+  
   personal.save(function (err) {
     if (err) {
       return res.status(400).send({

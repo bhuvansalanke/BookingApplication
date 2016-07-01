@@ -1,59 +1,23 @@
 
+
 <section data-ng-controller="EventsController as eventCtrl">
-    
- <div class="row">
-      
-    <div class="col-xs-8 col-sm-6 col-md-4">
-      <h2>Upcoming Events</h2>
-    </div>
-      
-      <div class="form-group col-xs-4 col-sm-6 col-md-8 text-right pull-down">
-          <h2>
-          <button type="button" class="btn btn-success text-center" ng-click="eventCtrl.modelCreate('lg')">
-              <i class="glyphicon glyphicon-user"></i> <br>
-                  New Event
-          </button>                  
-          </h2>
-      </div>
-      
-  </div>
-    
-  <div class="row">
-    <div class="form-group col-xs-12 col-sm-8">
-      <div class="input-group input-group-lg">
-        <input type="text" class="form-control" ng-model="searchText" placeholder="Search...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Go!></button>       
-        </span>
-      </div>
-    </div>
-  </div>
-  
-  <br>
-  <br>
-  <br>
-   
-    <div class="row" class="col-md-6">
-        <div class="form-group">         
-            
-            <div class="col-md-6">
-              <div ng-repeat="event in events | filter:searchText" class="listItem">
-                <a ng-click="setCurrentEvent(event)">{{event.summary}}</a>
-                - {{ event.start.dateTime || event.start.date | date:medium }}
-              </div>
-            </div> 
-            
-            
-            <div id="mainContent" class="col-md-6">
-                <h2>{{ currentEvent.summary }}</h2>
-                <div class="well" ng-show="currentEvent">
-                    When: {{currentEvent.start.date || currentEvent.start.dateTime | date:'MMM d, y @ h:mm a'}}<br/>
-                    Description: {{currentEvent.description}}<br/>
-                </div>
-            </div>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+            <th>Dentist Name</th>
+            <th>When</th>
+            <th>Patient Details</th>
+            </tr>
+        </thead>
         
-        </div>
-    </div>
+        <tbody>
+            <tr ng-repeat="event in events | filter:searchText | orderBy: 'start.dateTime'">
+                <td>{{event.summary}}</td>
+                <td>{{event.start.dateTime | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{event.end.dateTime | amDateFormat: 'h:mm:ss a'}}</td>
+                <td>{{event.description.split('\n')[0]}}<br/>{{event.description.split('\n')[1]}}<br/>{{event.description.split('\n')[2]}}</td>
+            </tr>
+        </tbody>
+    
+    </table>
 
 </section>
-

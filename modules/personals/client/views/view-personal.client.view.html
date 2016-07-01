@@ -1,40 +1,45 @@
 <div class="list-group">
-    <div class="col-xs-6 col-sm-4 col-md-3 extra-padding" data-ng-repeat="personal in personalsCtrl.personals | filter:searchText">
+    <div class="col-sm-6 col-md-4 extra-padding" data-ng-repeat="personal in personalsCtrl.personals | filter:searchText">
       <a class="list-group-item">      
         
         <h4 class="prsnl-cust-list text-center">
-          <i class="glyphicon glyphicon-user prsnl-list"
-               ng-class="{'text-primary': personal.isConsultant, 'text-danger': !personal.isConsultant}"></i>
+           <img class="prsnl-image" ng-src="modules/personals/img/buttons/{{personal.image}}" on-error-src="modules/personals/img/buttons/default.png">     
         </h4>
         
         <div class="row">         
           <div class="col-xs-10 col-xs-offset-1 pull-up">
             
-            <h4>{{personal.fName}} {{personal.lName}}</h4>
+            <h4><b>{{personal.fName}} {{personal.lName}}</b></h4>
             
             <small class="list-group-item-text text-muted text-xs">
+                <p>{{personal.qualification}}</p>
+                <p>{{personal.experience}}</p>
                 <p>{{personal.contact}}</p>
                 <p>{{personal.emailId}}</p>
+                <p>{{personal.speciality}}</p>
+                <p>Rating: {{personal.rating}}/5</p> 
+           
                 
                 <span class="pull-right">
-                  <button class="btn btn-sm btn-default" ng-click="personalsCtrl.remove(personal)">
+                  <button class="btn btn-sm btn-danger" ng-click="personalsCtrl.remove(personal)">
                     <i class="glyphicon glyphicon-trash"></i>
                   </button>
                 </span>
                 
                 <span class="pull-left">
-                  <button class="btn btn-sm btn-default" ng-click="personalsCtrl.modelUpdate('lg', personal)">
+                  <button class="btn btn-sm btn-warning" ng-click="personalsCtrl.modelUpdate('lg', personal)">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </button>
-                  <button class="btn btn-sm btn-default" ng-click="personalsCtrl.modelSchedule('lg', personal)">
+                  <button class="btn btn-sm btn-success" ng-click="personalsCtrl.modelSchedule('lg', personal)">
                     <i class="glyphicon glyphicon-calendar"></i>
                   </button>
                 </span>
             </small>
             
           </div>
-        </div>
+        </div><br><br>
       </a>
+    
     </div>
 </div>
   
@@ -42,3 +47,4 @@
     No personals yet, why don't you <a data-ui-sref="personals.create">create one</a>?
 </div>
 
+ 
