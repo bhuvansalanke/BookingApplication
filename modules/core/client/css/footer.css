@@ -1,5 +1,9 @@
 .footer-distributed{
+<<<<<<< HEAD
 	background-color: #00A89C;
+=======
+	background-color: lightgray;
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -17,7 +21,10 @@
 .footer-distributed .footer-right{
 	display: inline-block;
 	vertical-align: top;
+<<<<<<< HEAD
      color: #ffffff;
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 }
 
 /* Footer left */
@@ -25,11 +32,18 @@
 .footer-distributed .footer-left{
 	width: 40%;
     margin-top: 5px;
+<<<<<<< HEAD
 	
 }
 
 .footer-distributed .footer-company-name{
 	color:  #ffffff;
+=======
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
@@ -41,13 +55,20 @@
 	width: 30%;
     float: center;
     margin-top: 5px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 }
 
 
 .footer-distributed .footer-center p a{
     font-size: 14px;
+<<<<<<< HEAD
 	color: #ffffff;
+=======
+	color: #8f9296;
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
     font-weight: normal;
 	text-decoration: none;
     margin: 0;
@@ -59,7 +80,10 @@
 .footer-distributed .footer-right{
 	float: right;
     margin-top: 3px;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 }
 
 .footer-distributed .footer-icons{
@@ -96,6 +120,7 @@
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
+<<<<<<< HEAD
 		
 }
 
@@ -151,3 +176,7 @@
         
  
 	} */
+=======
+
+}
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386

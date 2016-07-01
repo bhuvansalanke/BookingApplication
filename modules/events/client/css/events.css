@@ -32,9 +32,15 @@
 }
   
 /* Remove that awful yellow color and border from today in Schedule */
+<<<<<<< HEAD
 /*.fc-unthemed .fc-today {
   background-color: lightgray;
 }*/
+=======
+.fc-unthemed .fc-today {
+  background-color: lightgray;
+}
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 
 /* Styling for each event from Schedule */
 .fc-time-grid-event.fc-v-event.fc-event {
@@ -54,7 +60,11 @@
 
 /* Remove the header border from Schedule */
 .fc td, .fc th {
+<<<<<<< HEAD
   /*border-style: none !important;*/  /*I comment    */
+=======
+  border-style: none !important;
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
   border-width: 1px !important;
   padding: 0 !important;
   vertical-align: top !important;
@@ -94,6 +104,7 @@
             3px 3px #53a7ea;
     -webkit-transform: translateX(-3px);
     transform: translateX(-3px);
+<<<<<<< HEAD
 }
 
 th{
@@ -254,3 +265,6 @@ md-dialog md-dialog-actions .md-button{
 /*.fc-time-grid{
   overflow-x: scroll; overflow-y: hidden; height: auto;
 }*/
+=======
+}
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386

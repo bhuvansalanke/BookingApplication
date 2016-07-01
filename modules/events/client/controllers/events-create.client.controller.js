@@ -6,7 +6,10 @@ eventCreateApp.controller('EventsCreateController',
     ['$scope', '$googleCalendar', '$location', '$log', '$filter', '$compile', 'prsnlService', '$mdDialog', '$mdMedia',
         function($scope, $googleCalendar, $location, $log, $filter, $compile, prsnlService, $mdDialog, $mdMedia) {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
             $scope.events = [];
 
             this.selectedDentist = prsnlService.getDentist();
@@ -31,6 +34,7 @@ eventCreateApp.controller('EventsCreateController',
             $scope.load = function() {
                 $googleCalendar.load();
             };
+<<<<<<< HEAD
           
           
 
@@ -62,6 +66,12 @@ eventCreateApp.controller('EventsCreateController',
                     alert('please enter chief complaint')
                 }
                  else {
+=======
+
+            //Book an appointment            
+            this.addEvent = function() {
+
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
                 console.log('Start Time:', $scope.event.startTime);
 
                 var time = $scope.event.startTime.match(/(\d+)(?::(\d\d))?\s*(p?)/);
@@ -81,11 +91,15 @@ eventCreateApp.controller('EventsCreateController',
                     emailId: $scope.event.patientEmail
                 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
                 $googleCalendar.addEvent($scope.event.startDate, endDate, this.selectedDentist, $scope.patientInfo)
                     .then(function(result) {
                         console.log('Add Event Result:', result);
                         $scope.showSuccess();
+<<<<<<< HEAD
                     
                         
                     }, function(result) {
@@ -93,6 +107,11 @@ eventCreateApp.controller('EventsCreateController',
                     });
                    
                  }
+=======
+                    }, function(result) {
+                        $scope.showFailed();
+                    });
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
             };
 
             this.updateTime = function() {
@@ -122,7 +141,11 @@ eventCreateApp.controller('EventsCreateController',
                         });
                     }
                     else {
+<<<<<<< HEAD
                        $scope.notavailable = ''; //$scope.notavailable = 'No Slots Available for the selected date';
+=======
+                        $scope.notavailable = 'No Slots Available for the selected date';
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
                     }
 
                 }

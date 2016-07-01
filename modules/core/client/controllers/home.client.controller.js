@@ -13,11 +13,16 @@ angular.module('core').controller('HomeController',
         prsnlService.addDentist(prsnl.selectedPrsnl);
         prsnlService.addTreatment(appt.selectedAppt);
         
+<<<<<<< HEAD
         if(prsnl.selectedPrsnl && appt.selectedAppt){
             $location.path('/booklast');
              }else{
               alert("Please select both Treatment & Doctor")
             }
+=======
+        if(prsnl.selectedPrsnl && appt.selectedAppt)
+            $location.path('/booklast');
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
     };
     
     $scope.data = {

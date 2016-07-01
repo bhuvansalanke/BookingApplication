@@ -50,8 +50,13 @@ exports.update = function (req, res) {
   personal.rating = req.body.rating;
   personal.treatments = req.body.treatments;
   personal.slots = req.body.slots;
+<<<<<<< HEAD
   personal.adminemailId = req.body.adminemailId;
   personal.image = req.body.contact + '.png';
+=======
+  personal.experience = req.body.experience;
+  personal.rating = req.body.rating;
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
   
   personal.save(function (err) {
     if (err) {

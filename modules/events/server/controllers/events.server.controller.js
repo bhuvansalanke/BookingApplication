@@ -6,6 +6,7 @@ var User = require('mongoose').model('User');
 var path = require('path');
 var errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
+<<<<<<< HEAD
        // Load the twilio module
          var twilio = require('twilio');
  
@@ -48,6 +49,8 @@ var errorHandler = require(path.resolve('./modules/core/server/controllers/error
         
         
 
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 var userProfile=null;
 
 exports.login = function(req, res, next) {
@@ -117,12 +120,15 @@ exports.create = function (req, res, next) {
         'attendees': [
             {
               'email': req.body.contact.emailId,
+<<<<<<< HEAD
               'organizer': true,
               'self': true,
               'responseStatus': 'needsAction'
             },
               {
               'email': req.body.contact.adminemailId,
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
               'organizer': true,
               'self': true,
               'responseStatus': 'needsAction'
@@ -145,7 +151,10 @@ exports.create = function (req, res, next) {
             });
         } else {
             res.send(response);
+<<<<<<< HEAD
             sendSms();
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
         }
         
     });
@@ -154,7 +163,11 @@ exports.create = function (req, res, next) {
 
 exports.load = function (req, res, next) { 
   User.findOne({
+<<<<<<< HEAD
     username: 'hanamantrkadlimatti'
+=======
+    username: 'bhuvansalanke'
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
   }, function (err, user) {
     if (err) {
       return next(err);

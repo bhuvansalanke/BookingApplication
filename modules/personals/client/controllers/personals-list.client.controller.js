@@ -4,6 +4,7 @@
 
 var personalsApp = angular.module('personals');
 
+<<<<<<< HEAD
 personalsApp.directive('onErrorSrc', function() {
     return {
         link: function(scope, element, attrs) {
@@ -16,6 +17,8 @@ personalsApp.directive('onErrorSrc', function() {
     }
 });
 
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 personalsApp.controller('PersonalsController', ['$scope', '$stateParams', 'Personals', '$uibModal', '$log', '$q', 'slotService',
     function($scope, $stateParams, Personals, $uibModal, $log, $q, slotService) {
 

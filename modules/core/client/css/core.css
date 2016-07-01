@@ -85,6 +85,7 @@ a:hover .header-profile-image {
 
 .md-button.md-icon-button {
     margin: 0px;
+<<<<<<< HEAD
 }
 
 .book-now{
@@ -636,3 +637,85 @@ input.ng-valid.ng-dirty{
 .heading{
     margin-top: -50px;
 }*/
+=======
+}
+
+.book-now
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.body-main {
+	color:  #ffffff;
+  	background-color:#fff;
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.confident-logo {
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.navbar-brand {
+    font: normal 26px 'Cookie';
+    margin-left: 25px;
+}
+
+.navbar-items {
+    margin: 5px 15px;
+    margin-right: 25px;
+}
+
+.navbar-toggle {
+    color:  black;
+}
+
+.page-title {
+    text-align: center;
+    font: normal 26px 'Cookie';
+}
+
+ .autocomplete-custom-template li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal; }
+ .autocomplete-custom-template li:last-child {
+  border-bottom-width: 0; }
+ .autocomplete-custom-template .item-title,
+ .autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2; 
+  }
+ .autocomplete-custom-template .item-title i {
+    height: 18px;
+    width: 18px; 
+  }
+.autocomplete-custom-template .user-title{
+    color: blueviolet;
+    font-size: 20px;
+    padding-left: 50px;
+}
+
+ .panel-search {
+     margin: 0 auto;
+     max-width: 700px;
+ }
+ 
+.input-search {
+     padding: 5px 5px 5px 5px;
+     
+ }
+ 
+ .panel-left {
+     background: lightblue;
+ }
+ 
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386

@@ -10,7 +10,10 @@ personalsApp.controller('PersonalsUpdateController', ['$scope',
         this.rateFunction = function(rating) {
             alert('Rating selected - ' + rating);
         };
+<<<<<<< HEAD
         
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
         // Update existing Personal
         this.UpdatePrsnl = function(updtpersonal) {
 
