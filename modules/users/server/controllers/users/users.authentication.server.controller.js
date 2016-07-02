@@ -180,7 +180,14 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
             });
           });
         } else {
-          return done(err, user);
+          
+          user.providerData = providerUserProfile.providerData;
+
+          user.save(function (err) {
+          if (!err) {
+            return done(err, user);
+          }
+        });
         }
       }
     });

@@ -1,7 +1,10 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
 <section data-ng-controller="PersonalsUpdateController as prsnlUpdtCtrl">
   
   <div class="modal-header">
-    <h3 class="modal-title">Update: {{personal.fName}} {{personal.lName}}</h3>
+    <h1 class="modal-title"><b><a class="fa fa-2x fa-user-md" ></a> Update: {{personal.fName}} {{personal.lName}} </b></h1>
   </div>
   <div class="modal-body">
       <form name="editPersonalForm">
@@ -13,8 +16,10 @@
         </div>
         <div class="row">
           <div class="col-sm-6 text-center">
-            <i class="glyphicon glyphicon-user prsnl-profile"
-               ng-class="{'text-primary': personal.isConsultant, 'text-danger': !personal.isConsultant}"></i>
+           <!-- <i class="glyphicon glyphicon-user prsnl-profile"
+               ng-class="{'text-primary': createPrsnlCtrl.isConsultant, 'text-danger': !createPrsnlCtrl.isConsultant}">
+            </i>-->
+             
           </div>
           
           <div class="col-sm-6">
@@ -30,18 +35,28 @@
                 <input name="lName" type="text" data-ng-model="personal.lName" id="lName" class="form-control" placeholder="Enter your Last Name" required>
               </div>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="treatment">Treatment</label><br>
-                <angular-multi-select class="controls" ng-controller="ApptTypeController"             
-                    input-model="personal.treatments"
-                    output-model="personal.selectedTreatments"
-                    item-label="<[ description ]>"
-                    button-template="angular-multi-select-btn-data.htm"
-                    button-label="<[ description ]>"
-                    button-label-separator='[" , "]'
-                    tick-property="checked"
-                    id="treatment">
-                </angular-multi-select>
+            
+             <div class="form-group" ng-controller="ApptTypeController">
+              <label class="control-label" for="treatment">Treatment</label>
+              <br>
+              <multiple-autocomplete ng-model="personal.treatments"
+                  object-property="description"
+                  suggestions-arr="procedureList">
+              </multiple-autocomplete>
+            </div>
+            
+             <div class="form-group">
+              <label class="control-label" for="qualification">Qualification</label>
+              <div class="controls">
+                <input name="qualification" type="text" data-ng-model="personal.qualification" id="qualification" class="form-control" placeholder="Enter your qualification" required>
+              </div>
+            </div>
+            
+              <div class="form-group">
+              <label class="control-label" for="experience">Experience</label>
+              <div class="controls">
+                <input name="experience" type="text" data-ng-model="personal.experience" id="experience" class="form-control" placeholder="Enter your experience" required>
+              </div>
             </div>
             
           </div>
@@ -61,6 +76,7 @@
                 <input name="emailId" type="text" data-ng-model="personal.emailId" id="emailId" class="form-control" placeholder="Enter your email id" required>
               </div>
             </div>
+           
           </div>       
         
           <div class="col-sm-6 col-sm-pull-6">
@@ -76,8 +92,26 @@
                 <input name="isConsultant" type="checkbox" data-ng-model="personal.isConsultant" id="isConsultant" class="form-control chkbox-cons-left">
               </div>
             </div>
+             <div class="form-group">
+              <label class="control-label" for="adminemailId">Admin Email Id</label>
+              <div class="controls">
+                <input name="adminemailId" type="text" data-ng-model="personal.adminemailId" id="adminemailId" class="form-control" placeholder="Enter Admin email id" required>
+              </div>
+            </div>
           </div>
         </div>
+
+         <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="rating">Rating</label>
+              <div class="controls">
+                <input-stars max="5" data-ng-model="personal.rating"></input-stars>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
       </fieldset>
       </form>

@@ -3,7 +3,8 @@
     <form class="signin form-horizontal">
       <fieldset>
         <div class="form-group text-center">
-          <img data-ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture">
+            {{imageURL}}
+          <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture">
         </div>
         <div class="text-center form-group" data-ng-hide="uploader.queue.length">
           <span class="btn btn-default btn-file">

@@ -1,26 +1,7 @@
 //database
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-
-var ApptTypeSchema = new Schema({
-    description: {
-        type: String,
-        default: '',
-        required: 'Please fill the procedure',
-        trim: true
-    },
-    duration: {
-        type: Number
-    },
-    price: {
-        type: Number
-    },
-    appttypeid: {
-        type: Schema.ObjectId,
-        ref: 'ApptTypeId'
-    }
-});
+var ApptTypeSchema = require('./appt-type.server.model');
 
 var PersonalSchema = new Schema({
     created: {
@@ -64,6 +45,26 @@ var PersonalSchema = new Schema({
         default: '',
         trim: true
     },
+      experience: {
+        type: String,
+        default: '',
+        trim: true
+    },
+     rating: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+     adminemailId: {
+        type: String,
+        default: '',
+        required: 'Please fill Admin email id',
+        trim: true
+    },
+    image: {
+        type: String,
+    default: 'modules/personals/client/img/buttons/default.png'
+    },
     
     treatments: [ApptTypeSchema],
     
@@ -92,4 +93,3 @@ var PersonalSchema = new Schema({
 });
 
 mongoose.model('Personal', PersonalSchema);
-mongoose.model('ApptType', ApptTypeSchema);

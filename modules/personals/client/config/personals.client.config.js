@@ -13,13 +13,13 @@ angular.module('personals').run(['Menus',
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
-      title: 'Employees',
+      title: 'Dentists',
       state: 'personals.list'
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
-      title: 'Appointment Types',
+      title: 'Treatment Types',
       state: 'personals.appttypelist'
     });
   }

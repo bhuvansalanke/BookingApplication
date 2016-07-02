@@ -17,7 +17,14 @@
     "angular-ui-calendar": "~1.0.1",
     "fullcalendar": "~2.4.0",
     "jquery-ui": "~1.11.4",
-    "angular-strap": "~2.3.7"
+    "angular-strap": "~2.3.7",
+    "angular-multi-select-alexandernst": "^5.5.8",
+    "jt.timepicker": "jquery-timepicker-jt#^1.8.9",
+    "angular-jquery-timepicker": "^0.10.0",
+    "angular-material": "~1.0.6",
+    "angular-moment": "~0.10.3",
+    "moment": "~2.12.0",
+    "font-awesome": "fontawesome#~4.6.1"
   },
   "resolutions": {
     "angular": "~1.3"
