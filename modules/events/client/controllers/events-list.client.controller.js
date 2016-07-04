@@ -23,6 +23,10 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
         editable: false,
         stick: true,
         header:{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
           left: 'month,agendaWeek,agendaDay,verticalResourceView',
           center: 'title',
           right: 'today prev,next'
@@ -67,6 +71,18 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
         eventDrop: $scope.alertOnDrop,
         eventResize: $scope.alertOnResize,
          // eventLimit: true,  eventOverlap:false
+<<<<<<< HEAD
+=======
+=======
+          left: 'month,agendaWeek,agendaDay',
+          center: 'title',
+          right: 'today prev,next'
+        },
+        eventClick: $scope.alertOnEventClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
       }
     };
 
@@ -105,11 +121,23 @@ eventsApp.controller('EventsController', ['$scope', '$googleCalendar', '$uibModa
                     'title': event.summary,
                     'start': event.start.dateTime,
                     'end': event.end.dateTime,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                     'description': event.description,
                     'resourceId': event.summary,
                    
                 };
                   console.log(event.summary)
+<<<<<<< HEAD
+=======
+=======
+                    'description': event.description
+                };
+                
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
             }
 
 		});

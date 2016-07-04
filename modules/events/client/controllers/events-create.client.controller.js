@@ -6,7 +6,14 @@ eventCreateApp.controller('EventsCreateController',
     ['$scope', '$googleCalendar', '$location', '$log', '$filter', '$compile', 'prsnlService', '$mdDialog', '$mdMedia',
         function($scope, $googleCalendar, $location, $log, $filter, $compile, prsnlService, $mdDialog, $mdMedia) {
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
             $scope.events = [];
 
             this.selectedDentist = prsnlService.getDentist();
@@ -31,6 +38,10 @@ eventCreateApp.controller('EventsCreateController',
             $scope.load = function() {
                 $googleCalendar.load();
             };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
           
           
 
@@ -62,6 +73,15 @@ eventCreateApp.controller('EventsCreateController',
                     alert('please enter chief complaint')
                 }
                  else {
+<<<<<<< HEAD
+=======
+=======
+
+            //Book an appointment            
+            this.addEvent = function() {
+
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                 console.log('Start Time:', $scope.event.startTime);
 
                 var time = $scope.event.startTime.match(/(\d+)(?::(\d\d))?\s*(p?)/);
@@ -81,11 +101,22 @@ eventCreateApp.controller('EventsCreateController',
                     emailId: $scope.event.patientEmail
                 };
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                 $googleCalendar.addEvent($scope.event.startDate, endDate, this.selectedDentist, $scope.patientInfo)
                     .then(function(result) {
                         console.log('Add Event Result:', result);
                         $scope.showSuccess();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                     
                         
                     }, function(result) {
@@ -93,6 +124,14 @@ eventCreateApp.controller('EventsCreateController',
                     });
                    
                  }
+<<<<<<< HEAD
+=======
+=======
+                    }, function(result) {
+                        $scope.showFailed();
+                    });
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
             };
 
             this.updateTime = function() {
@@ -122,7 +161,15 @@ eventCreateApp.controller('EventsCreateController',
                         });
                     }
                     else {
+<<<<<<< HEAD
                        $scope.notavailable = ''; //$scope.notavailable = 'No Slots Available for the selected date';
+=======
+<<<<<<< HEAD
+                       $scope.notavailable = ''; //$scope.notavailable = 'No Slots Available for the selected date';
+=======
+                        $scope.notavailable = 'No Slots Available for the selected date';
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                     }
 
                 }

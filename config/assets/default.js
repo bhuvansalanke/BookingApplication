@@ -12,7 +12,15 @@ module.exports = {
         'public/lib/angular-multi-select-alexandernst/dist/angular-multi-select.css',
         'public/lib/jquery-timepicker-jt/jquery.timepicker.css',
         'public/lib/angular-material/angular-material.css',
+<<<<<<< HEAD
         'public/lib/font-awesome/font-awesome.css', 
+=======
+<<<<<<< HEAD
+        'public/lib/font-awesome/font-awesome.css', 
+=======
+        'public/lib/font-awesome/font-awesome.css',
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
         'public/lib/angular-input-stars-directive/angular-input-stars.css',
         'public/lib/angularMultipleSelect/build/multiple-select.min.css'
       ],

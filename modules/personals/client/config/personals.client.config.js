@@ -2,15 +2,16 @@
 
 // Configuring the Personals module
 angular.module('personals').run(['Menus',
-  function (Menus) {
-    // Add the personals dropdown item
-    Menus.addMenuItem('topbar', {
-      title: 'Admin',
-      state: 'personals',
-      type: 'dropdown',
-      roles: ['user']
-    });
+    function(Menus) {
+        // Add the personals dropdown item
+        Menus.addMenuItem('topbar', {
+            title: 'Configuration',
+            state: 'personals',
+            type: 'dropdown',
+            roles: ['user']
+        });
 
+<<<<<<< HEAD
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'personals', {
       title: 'Dentists',
@@ -23,4 +24,18 @@ angular.module('personals').run(['Menus',
       state: 'personals.appttypelist'
     });
   }
+=======
+        // Add the dropdown list item
+        Menus.addSubMenuItem('topbar', 'personals', {
+            title: 'Employees',
+            state: 'personals.list'
+        });
+
+        // Add the dropdown list item
+        Menus.addSubMenuItem('topbar', 'personals', {
+            title: 'Appointment Types',
+            state: 'personals.appttypelist'
+        });
+    }
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 ]);

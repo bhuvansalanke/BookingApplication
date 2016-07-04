@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 <md-dialog aria-label="Success" ng-cloak class="success">
    <!-- <md-toolbar>
+=======
+<<<<<<< HEAD
+<md-dialog aria-label="Success" ng-cloak class="success">
+   <!-- <md-toolbar>
+=======
+<md-dialog aria-label="Success" ng-cloak>
+    <md-toolbar>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
       <div class="md-toolbar-tools">
         <h2>Confirmed</h2>
         <span flex></span>
@@ -7,6 +17,10 @@
           <i class="glyphicon glyphicon-remove"></i>
         </md-button>
       </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
     </md-toolbar>-->
     <md-dialog-content>
       <div class="md-dialog-content">
@@ -23,12 +37,40 @@
            <p class="confirm-detail"><strong>Patient Name:</strong> {{ $scope.event.patientName }} </p>
            <p class="confirm-detail"><strong> Appointment Date and Time: </strong>{{$scope.event.startDate | date: 'medium'}}</p>
       </div>
+<<<<<<< HEAD
+=======
+=======
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2 class="text text-center">Thank you!</h2>
+        <p class="text text-center">Your Appointment is Confirmed</p>
+        <md-divider></md-divider>
+        <div class="panel panel-body">
+            <p>Your booking request has been <strong>received.</strong> Please check your inbox for confirmation.</p>
+            <p><strong>Your booking details:</strong></p>
+            <p>Dentist Name: {{ selectedDentist.fName + ' ' + selectedDentist.lName}} </p>
+            <p>Treatment: {{ selectedTreatment.description }}</p>
+            <p>Patient Name: {{ event.patientName }} </p>
+            Appointment Date and Time: {{event.startDate | date: 'medium'}}
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
         </div>
       </div>
     </md-dialog-content>
     <md-dialog-actions layout="row">
+<<<<<<< HEAD
       <md-button style="background-color:#2b3d4f; color:white;" ng-click="answer('okay')">
          Close
+=======
+<<<<<<< HEAD
+      <md-button style="background-color:#2b3d4f; color:white;" ng-click="answer('okay')">
+         Close
+=======
+      <md-button ng-click="answer('okay')">
+         Okay
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
       </md-button>
     </md-dialog-actions>
   </form>

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
 <section id="booking-page" class="container" ng-controller="BookController as bookCtrl">
     
         <h3 class="main"> Selected Doctor & Treatment </h3>
@@ -162,3 +166,69 @@
 </section>
 
 
+<<<<<<< HEAD
+=======
+=======
+<section class="container" ng-controller="BookController as bookCtrl">
+<div layout="row" layout-xs="column" ng-controller="EventsCreateController as createEventCtrl"
+        data-ng-init="load()">
+    <div flex-gt-sm="33" flex="100" layout-margin class="panel panel-body panel-left">
+        <p class="fName pad-right"><h3>{{ dentist.fName + ' ' + dentist.lName}}</h3></p>
+        <p class="speciality">{{ dentist.speciality }}</p>
+        <br>
+        <p class="treatment"> <strong>Treatment: </strong> {{ treatment.description }}</p>
+    </div>
+    <div flex-gt-sm="66" flex="100" layout-margin class="panel panel-body">
+        <br> 
+        <form name="patientForm">
+            
+            <legend>Appointment Date and Time</legend>
+
+            <md-content class="pad-bottom">
+                <md-datepicker ng-model="$parent.event.startDate" md-placeholder="Select Date" 
+                        ng-change="createEventCtrl.updateTime()" md-min-date="minDate" md-max-date="maxDate">
+                </md-datepicker> 
+                <div ng-message="required">
+                    {{notavailable}}
+                </div>
+            </md-content> 
+                        
+            <md-input-container class="md-icon-float md-icon-right md-block">
+                <label class="control-label col-sm-3" for="startTime">Select Time</label>
+                <md-icon><i class="text-muted glyphicon glyphicon-time time-icon"></i></md-icon>
+                <div class="form-group" id="timePick">
+                    <input name="startTime" type="text" class="form-control time start" 
+                        ng-model="$parent.event.startTime" id="startTime" ng-required="true">
+                    <div ng-messages="dateForm.startTime.$error">
+                        <div ng-message="required">Appointment time is required.</div>
+                    </div>
+                </div>
+            </md-input-container>
+            
+            <legend>Patient Information</legend>
+            
+            <md-input-container class="md-icon-float md-block">
+                <label>Patient Name</label>
+                <md-icon><i class="text-muted glyphicon glyphicon-user time-icon"></i></md-icon>
+                <input required name="patientName" ng-model="$parent.event.patientName" type="text" ng-required="true">
+            </md-input-container>
+            
+            <md-input-container md-no-float class="md-block">
+                <label>Phone Number</label>
+                <md-icon><i class="text-muted glyphicon glyphicon-phone time-icon"></i></md-icon>
+                <input required name="patientPhoneNumber" ng-model="$parent.event.patientPhoneNumber" type="text" ng-required="true">
+            </md-input-container>
+            
+            <md-input-container class="md-block">
+                <label>Email (required)</label>
+                <md-icon><i class="text-muted glyphicon glyphicon-envelope time-icon"></i></md-icon>
+                <input required name="patientEmail" ng-model="$parent.event.patientEmail" type="email" ng-required="true">
+            </md-input-container>
+            
+            <md-button class="md-primary" ng-click="createEventCtrl.addEvent()" ng-disabled="patientForm.$invalid || patientForm.$pending">Submit</md-button>
+        </form>
+    </div>
+</div>
+</section>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8

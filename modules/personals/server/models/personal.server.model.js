@@ -45,16 +45,36 @@ var PersonalSchema = new Schema({
         default: '',
         trim: true
     },
+<<<<<<< HEAD
       experience: {
+=======
+<<<<<<< HEAD
+      experience: {
+=======
+    experience: {
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
         type: String,
         default: '',
         trim: true
     },
+<<<<<<< HEAD
      rating: {
+=======
+<<<<<<< HEAD
+     rating: {
+=======
+    rating: {
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
         type: Number,
         default: 0,
         trim: true
     },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
      adminemailId: {
         type: String,
         default: '',
@@ -65,6 +85,11 @@ var PersonalSchema = new Schema({
         type: String,
     default: 'modules/personals/client/img/buttons/default.png'
     },
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
     
     treatments: [ApptTypeSchema],
     
