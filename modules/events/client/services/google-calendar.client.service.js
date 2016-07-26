@@ -14,7 +14,7 @@ angular.module('GoogleCalendarService', [], function($provide){
 			load: function(){
 				var defer = $q.defer();
 
-				$http.get(baseUrl+'/eventload').then(function(response){
+				$http.get(baseUrl+'/api/loadprofile').then(function(response){
 
 					if(response.status === 200){
 						$scope.$broadcast('GoogleEventsReceived', response.data.items);
@@ -33,11 +33,12 @@ angular.module('GoogleCalendarService', [], function($provide){
 			getEvents: function(){
 				var defer = $q.defer();
 
-				$http.get(baseUrl+'/events').then(function(response){
+				$http.get(baseUrl+'/api/events').then(function(response){
 
 					if(response.status === 200){
 						$scope.$broadcast('GoogleEventsReceived', response.data.items);
 						defer.resolve(response.data.items);
+						console.log(response.data.items);
 					}
 
 					else{
@@ -59,7 +60,7 @@ angular.module('GoogleCalendarService', [], function($provide){
                     patient: patientInfo
 				};
 
-				$http.post(baseUrl+'/event', postData, {'Content-Type':  'application/json'})
+				$http.post(baseUrl+'/api/events', postData, {'Content-Type':  'application/json'})
                 .then(function(response){
 
 					if(response.status === 200){
