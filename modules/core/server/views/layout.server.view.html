@@ -8,7 +8,13 @@
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <meta name="fragment" content="!">
-
+  
+  <!-- Font Awesome Icon-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+  <!-- Font Family-->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600' rel='stylesheet' type='text/css'>
+         
   <!-- Apple META -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -38,7 +44,15 @@
 <body class="ng-cloak">
     <div flex layout="column" layout-fill>
         <md-toolbar style="background-color: transparent;">
+<<<<<<< HEAD
+            <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top "></header>
+=======
+<<<<<<< HEAD
+            <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top "></header>
+=======
             <header data-ng-include="'/modules/core/views/header.client.view.html'"></header>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
         </md-toolbar>
         {% block content %}{% endblock %}
     </div>
@@ -60,4 +74,7 @@
   {% endif %}
 </body>
 
+
+  <footer data-ng-include="'/modules/core/views/footer.client.view.html'" class="navbar navbar-fixed-bottom "></footer>
+      
 </html>

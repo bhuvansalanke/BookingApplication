@@ -11,6 +11,20 @@ angular.module('personals').run(['Menus',
             roles: ['user']
         });
 
+<<<<<<< HEAD
+    // Add the dropdown list item
+    Menus.addSubMenuItem('topbar', 'personals', {
+      title: 'Dentists',
+      state: 'personals.list'
+    });
+
+    // Add the dropdown list item
+    Menus.addSubMenuItem('topbar', 'personals', {
+      title: 'Treatment Types',
+      state: 'personals.appttypelist'
+    });
+  }
+=======
         // Add the dropdown list item
         Menus.addSubMenuItem('topbar', 'personals', {
             title: 'Employees',
@@ -23,4 +37,5 @@ angular.module('personals').run(['Menus',
             state: 'personals.appttypelist'
         });
     }
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
 ]);

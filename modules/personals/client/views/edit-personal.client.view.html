@@ -4,7 +4,7 @@
 <section data-ng-controller="PersonalsUpdateController as prsnlUpdtCtrl">
 
   <div class="modal-header">
-    <h3 class="modal-title">Update: {{personal.fName}} {{personal.lName}}</h3>
+    <h1 class="modal-title"><b><a class="fa fa-2x fa-user-md" ></a> Update: {{personal.fName}} {{personal.lName}} </b></h1>
   </div>
   <div class="modal-body">
     <form name="editPersonalForm">
@@ -15,11 +15,22 @@
           </uib-alert>
         </div>
         <div class="row">
+<<<<<<< HEAD
+          <div class="col-sm-6 text-center">
+           <!-- <i class="glyphicon glyphicon-user prsnl-profile"
+               ng-class="{'text-primary': createPrsnlCtrl.isConsultant, 'text-danger': !createPrsnlCtrl.isConsultant}">
+            </i>-->
+             
+<<<<<<< HEAD
+=======
+=======
           <div class="col-sm-6">
             <a class="text-center list-group-item">
               <i class="glyphicon glyphicon-user prsnl-profile" ng-class="{'text-primary': personal.isConsultant, 'text-danger': !personal.isConsultant}">
                         </i>
             </a>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
           </div>
           <div class="col-sm-6">
 
@@ -38,6 +49,49 @@
                   required>
               </div>
             </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
+            
+             <div class="form-group" ng-controller="ApptTypeController">
+              <label class="control-label" for="treatment">Treatment</label>
+              <br>
+              <multiple-autocomplete ng-model="personal.treatments"
+                  object-property="description"
+                  suggestions-arr="procedureList">
+              </multiple-autocomplete>
+<<<<<<< HEAD
+            </div>
+            
+             <div class="form-group">
+              <label class="control-label" for="qualification">Qualification</label>
+              <div class="controls">
+                <input name="qualification" type="text" data-ng-model="personal.qualification" id="qualification" class="form-control" placeholder="Enter your qualification" required>
+              </div>
+            </div>
+            
+              <div class="form-group">
+              <label class="control-label" for="experience">Experience</label>
+              <div class="controls">
+                <input name="experience" type="text" data-ng-model="personal.experience" id="experience" class="form-control" placeholder="Enter your experience" required>
+              </div>
+=======
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
+            </div>
+            
+             <div class="form-group">
+              <label class="control-label" for="qualification">Qualification</label>
+              <div class="controls">
+                <input name="qualification" type="text" data-ng-model="personal.qualification" id="qualification" class="form-control" placeholder="Enter your qualification" required>
+              </div>
+            </div>
+            
+              <div class="form-group">
+              <label class="control-label" for="experience">Experience</label>
+              <div class="controls">
+                <input name="experience" type="text" data-ng-model="personal.experience" id="experience" class="form-control" placeholder="Enter your experience" required>
+=======
             <div class="form-group">
               <label class="control-label" for="contact">Contact Number</label>
               <div class="controls">
@@ -50,6 +104,7 @@
               <div class="controls">
                 <input name="emailId" type="text" data-ng-model="personal.emailId" id="emailId" class="form-control" placeholder="Enter your email id"
                   required>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
               </div>
             </div>
           </div>
@@ -82,7 +137,17 @@
                 <input name="speciality" type="text" data-ng-model="personal.speciality" id="speciality" class="form-control" placeholder="Enter your speciality">
               </div>
             </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
+           
+          </div>       
+        
+          <div class="col-sm-6 col-sm-pull-6">
+=======
 
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
             <div class="form-group">
               <label class="control-label" for="experience">Experience</label>
               <div class="controls">
@@ -100,8 +165,46 @@
                 <input-stars max="5" data-ng-model="personal.rating"></input-stars>
               </div>
             </div>
+             <div class="form-group">
+              <label class="control-label" for="adminemailId">Admin Email Id</label>
+              <div class="controls">
+                <input name="adminemailId" type="text" data-ng-model="personal.adminemailId" id="adminemailId" class="form-control" placeholder="Enter Admin email id" required>
+              </div>
+            </div>
           </div>
         </div>
+
+         <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="rating">Rating</label>
+              <div class="controls">
+                <input-stars max="5" data-ng-model="personal.rating"></input-stars>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="control-label" for="adminemailId">Admin Email Id</label>
+              <div class="controls">
+                <input name="adminemailId" type="text" data-ng-model="personal.adminemailId" id="adminemailId" class="form-control" placeholder="Enter Admin email id" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<<<<<<< HEAD
+         <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="control-label" for="rating">Rating</label>
+              <div class="controls">
+                <input-stars max="5" data-ng-model="personal.rating"></input-stars>
+              </div>
+            </div>
+          </div>
+        </div>
+
+=======
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
 
       </fieldset>
     </form>

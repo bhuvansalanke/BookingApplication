@@ -11,9 +11,21 @@
         </thead>
         
         <tbody>
+<<<<<<< HEAD
+            <tr ng-repeat="event in events | filter:searchText | orderBy: 'start.dateTime'">
+                <td>{{event.summary}}</td>
+                <td>{{event.start.dateTime | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{event.end.dateTime | amDateFormat: 'h:mm:ss a'}}</td>
+=======
+<<<<<<< HEAD
+            <tr ng-repeat="event in events | filter:searchText | orderBy: 'start.dateTime'">
+                <td>{{event.summary}}</td>
+                <td>{{event.start.dateTime | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{event.end.dateTime | amDateFormat: 'h:mm:ss a'}}</td>
+=======
             <tr ng-repeat="event in events">
                 <td>{{event.summary}}</td>
                 <td>{{event.start | amDateFormat: 'dddd, MMMM Do YYYY, h:mm:ss a'}} to {{event.end | amDateFormat: 'h:mm:ss a'}}</td>
+>>>>>>> 3f230c6b331f02a2ca632f31379b0e1aa3612386
+>>>>>>> f57e6ae079db3192a5701f6dcbe3223465f12be8
                 <td>{{event.description.split('\n')[0]}}<br/>{{event.description.split('\n')[1]}}<br/>{{event.description.split('\n')[2]}}</td>
             </tr>
         </tbody>
